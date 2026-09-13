@@ -236,6 +236,11 @@ function main() {
   );
 
   const lines = [
+    "# Feeds",
+    "/rss.xml /rss 301",
+    "/rss.xml/ /rss 301",
+    "/rss/ /rss 301",
+    "",
     "# Tistory numeric permalinks → title slugs",
     ...Object.entries(redirects)
       .sort((a, b) => Number(a[0]) - Number(b[0]))

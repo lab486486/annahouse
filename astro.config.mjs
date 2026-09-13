@@ -11,7 +11,8 @@ export default defineConfig({
   integrations: [
     sajuAdminApi(),
     sitemap({
-      filter: (page) => !page.includes("/404") && !page.includes("/admin"),
+      filter: (page) =>
+        !page.includes("/404") && !page.includes("/admin") && !page.includes("/rss"),
     }),
   ],
   build: {
