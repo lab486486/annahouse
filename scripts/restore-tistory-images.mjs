@@ -220,15 +220,18 @@ function copyImages(id, files) {
   return uploaded;
 }
 
-function restorePost(id, slug) {
+function restorePost(id, slug, options = {}) {
   const mdPath = path.join(blogRoot, `${slug}.md`);
   if (!fs.existsSync(mdPath)) return { skipped: "missing-md" };
+  const raw = fs.readFileSync(mdPath, "utf8");
+  if (options.onlyNew && raw.includes("/wp-content/uploads/tistory/")) {
+    return { skipped: "already" };
+  }
   const files = listImages(path.join(archiveRoot, id, "img"));
   if (!files.length) return { skipped: "no-images" };
 
   const copied = copyImages(id, files);
   const urls = copied.map((item) => `/${item.key}`);
-  const raw = fs.readFileSync(mdPath, "utf8");
   const parts = raw.split(/^---$/m);
   if (parts.length < 3) return { skipped: "frontmatter" };
   const front = updateCover(parts[1], urls[0]);
@@ -246,8 +249,9 @@ function main() {
   let images = 0;
   const skipped = [];
 
+  const onlyNew = process.argv.includes("--new");
   for (const [id, slug] of Object.entries(redirects.ids)) {
-    const result = restorePost(id, slug);
+    const result = restorePost(id, slug, { onlyNew });
     if (result.skipped) {
       skipped.push(`${id} ${result.skipped}`);
       continue;

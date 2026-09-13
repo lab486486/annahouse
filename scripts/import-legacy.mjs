@@ -155,8 +155,11 @@ function main() {
     fs.readdirSync(blogDir).filter((f) => f.endsWith(".md")).map((f) => f.replace(/\.md$/, "")),
   );
 
-  const redirects = {};
-  const categoryMap = new Map();
+  const existingData = fs.existsSync(path.join(root, "src/data/legacy-redirects.json"))
+    ? JSON.parse(fs.readFileSync(path.join(root, "src/data/legacy-redirects.json"), "utf8"))
+    : { ids: {}, categories: [] };
+  const redirects = { ...existingData.ids };
+  const categoryMap = new Map(existingData.categories.map((item) => [item.slug, item.name]));
   let written = 0;
   let skipped = 0;
 
