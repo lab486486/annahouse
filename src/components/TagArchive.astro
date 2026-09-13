@@ -1,0 +1,55 @@
+---
+import { mediaUrl } from "../site.config";
+import { formatDate, postUrl, tagUrl, type Post } from "../utils/posts";
+
+interface Props {
+  displayName: string;
+  slug: string;
+  page: number;
+  totalPages: number;
+  posts: Post[];
+}
+
+const { displayName, slug, page, totalPages, posts } = Astro.props;
+const prev = page > 1 ? tagUrl(slug, page - 1) : "";
+const next = page < totalPages ? tagUrl(slug, page + 1) : "";
+---
+
+<p class="eyebrow">태그</p>
+<h1>{displayName}</h1>
+<p class="lede">이 태그로 묶인 글을 모았습니다.</p>
+{
+  posts.length ? (
+    <ul class="card-grid">
+      {posts.map((post) => (
+        <li>
+          <a href={postUrl(post)}>
+            <div class="card-thumb">
+              {post.data.cover_image ? (
+                <img src={mediaUrl(post.data.cover_image)} alt="" />
+              ) : (
+                <span>{post.data.title.slice(0, 1)}</span>
+              )}
+            </div>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+            <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>글이 없습니다.</p>
+  )
+}
+{
+  totalPages > 1 && (
+    <nav class="pager" aria-label="태그 글 페이지">
+      {prev ? <a href={prev}>이전</a> : <span>이전</span>}
+      <strong>
+        {page} / {totalPages}
+      </strong>
+      {next ? <a href={next}>다음</a> : <span>다음</span>}
+    </nav>
+  )
+}

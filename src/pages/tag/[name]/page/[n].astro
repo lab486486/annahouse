@@ -1,0 +1,44 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import Header from "../../../../components/Header.astro";
+import Footer from "../../../../components/Footer.astro";
+import TagArchive from "../../../../components/TagArchive.astro";
+import { collectTags, getBlogPosts, paginatePosts, postsWithTag, TAG_PAGE_SIZE } from "../../../../utils/posts";
+
+export async function getStaticPaths() {
+  const posts = await getBlogPosts();
+  return collectTags(posts).flatMap((tag) => {
+    const tagged = postsWithTag(posts, tag.name);
+    const totalPages = Math.max(1, Math.ceil(tagged.length / TAG_PAGE_SIZE));
+    return Array.from({ length: totalPages }, (_, index) => ({
+      params: { name: tag.slug, n: String(index + 1) },
+      props: { tagName: tag.name },
+    }));
+  });
+}
+
+interface Props {
+  tagName: string;
+}
+
+const { tagName } = Astro.props;
+const slug = Astro.params.name || "";
+const page = Number(Astro.params.n) || 1;
+const listing = paginatePosts(postsWithTag(await getBlogPosts(), tagName), page, TAG_PAGE_SIZE);
+---
+
+<Layout title={`${tagName} 태그 ${listing.page}페이지`} description={`${tagName} 태그가 달린 글 ${listing.page}페이지입니다.`}>
+  <Header />
+  <main id="main" class="page-plain">
+    <div class="container">
+      <TagArchive
+        displayName={tagName}
+        slug={slug}
+        page={listing.page}
+        totalPages={listing.totalPages}
+        posts={listing.items}
+      />
+    </div>
+  </main>
+  <Footer />
+</Layout>

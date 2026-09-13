@@ -81,6 +81,32 @@ export function authorUrl(slug: string, page = 1): string {
   return `/author/${slug}/page/${page}/`;
 }
 
+export const TAG_PAGE_SIZE = 10;
+
+export function tagSlug(name: string): string {
+  return name.trim().replace(/\+/g, "").replace(/[()]/g, "").replace(/\s+/g, "-");
+}
+
+export function tagUrl(slug: string, page = 1): string {
+  if (page <= 1) return `/tag/${slug}/`;
+  return `/tag/${slug}/page/${page}/`;
+}
+
+export function collectTags(posts: Post[]): { slug: string; name: string }[] {
+  const map = new Map<string, string>();
+  for (const post of posts) {
+    for (const name of post.data.tags) {
+      const slug = tagSlug(name);
+      if (slug) map.set(slug, name);
+    }
+  }
+  return [...map.entries()].map(([slug, name]) => ({ slug, name }));
+}
+
+export function postsWithTag(posts: Post[], name: string): Post[] {
+  return posts.filter((post) => post.data.tags.includes(name));
+}
+
 export function paginatePosts<T>(items: T[], page: number, pageSize: number): {
   page: number;
   pageSize: number;

@@ -1,0 +1,39 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import TagArchive from "../../../components/TagArchive.astro";
+import { collectTags, getBlogPosts, paginatePosts, postsWithTag, TAG_PAGE_SIZE } from "../../../utils/posts";
+
+export async function getStaticPaths() {
+  const posts = await getBlogPosts();
+  return collectTags(posts).map((tag) => ({
+    params: { name: tag.slug },
+    props: { tagName: tag.name },
+  }));
+}
+
+interface Props {
+  tagName: string;
+}
+
+const { tagName } = Astro.props;
+const slug = Astro.params.name || "";
+const listing = paginatePosts(postsWithTag(await getBlogPosts(), tagName), 1, TAG_PAGE_SIZE);
+---
+
+<Layout title={`${tagName} 태그`} description={`${tagName} 태그가 달린 글을 모았습니다.`}>
+  <Header />
+  <main id="main" class="page-plain">
+    <div class="container">
+      <TagArchive
+        displayName={tagName}
+        slug={slug}
+        page={listing.page}
+        totalPages={listing.totalPages}
+        posts={listing.items}
+      />
+    </div>
+  </main>
+  <Footer />
+</Layout>
