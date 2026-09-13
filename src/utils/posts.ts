@@ -28,6 +28,66 @@ export async function getSajuPosts(): Promise<Post[]> {
   return (await getBlogPosts()).filter(isSajuPost);
 }
 
+const GENERIC_SAJU_TAG = /^(사주|연예인|만세력|사주 명리학|연예인 사주|신강|신약|.+기운 사주|.+\s사주|.+\s운세)$/;
+const SAJU_GROUPS = ["코르티스", "투모로우바이투게더", "르센느"];
+const SAJU_CLUSTERS = [["정몽규", "홍명보", "설영우"]];
+
+function sajuGroup(post: Post): string {
+  const hay = `${postSlug(post)} ${post.data.title} ${post.data.description}`;
+  return SAJU_GROUPS.find((group) => hay.includes(group)) || "";
+}
+
+function sajuCluster(post: Post): string {
+  const name = (post.data.name || "").trim();
+  const hay = `${name} ${postSlug(post)} ${post.data.title}`;
+  const cluster = SAJU_CLUSTERS.find((names) => names.some((item) => hay.includes(item)));
+  return cluster ? cluster.join("|") : "";
+}
+
+function sajuSignalTags(post: Post): string[] {
+  return post.data.tags.filter((tag) => !GENERIC_SAJU_TAG.test(tag));
+}
+
+export function relatedSajuPosts(current: Post, posts: Post[], limit = 3): Post[] {
+  const currentSlug = postSlug(current);
+  const currentName = (current.data.name || "").trim();
+  const currentGroup = sajuGroup(current);
+  const currentCluster = sajuCluster(current);
+  const currentSignals = new Set(sajuSignalTags(current));
+  const seen = new Set<string>([currentSlug, currentName].filter(Boolean));
+
+  const ranked = posts
+    .filter((post) => {
+      const slug = postSlug(post);
+      const name = (post.data.name || "").trim();
+      if (slug === currentSlug) return false;
+      if (name && seen.has(name)) return false;
+      return true;
+    })
+    .map((post) => {
+      let score = 0;
+      if (currentGroup && sajuGroup(post) === currentGroup) score += 100;
+      if (currentCluster && sajuCluster(post) === currentCluster) score += 80;
+      score += sajuSignalTags(post).filter((tag) => currentSignals.has(tag)).length * 12;
+      if (current.data.gender && post.data.gender === current.data.gender) score += 2;
+      score += Math.max(0, 3 - Math.abs(post.data.date.valueOf() - current.data.date.valueOf()) / 86_400_000 / 30);
+      return { post, score };
+    })
+    .sort((a, b) => b.score - a.score || b.post.data.date.valueOf() - a.post.data.date.valueOf());
+
+  const picked: Post[] = [];
+  for (const row of ranked) {
+    const name = (row.post.data.name || "").trim();
+    const slug = postSlug(row.post);
+    if (seen.has(slug) || (name && seen.has(name))) continue;
+    picked.push(row.post);
+    seen.add(slug);
+    if (name) seen.add(name);
+    if (picked.length >= limit) break;
+  }
+  return picked;
+}
+
 export type Face = {
   name: string;
   href: string;

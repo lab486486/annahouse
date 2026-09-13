@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import { mediaUrl } from "../site.config";
 import { renderPostHtml } from "../lib/render-post";
 import legacyRedirects from "../data/legacy-redirects.json";
-import { formatDate, getBlogPosts, postSlug, type Post } from "../utils/posts";
+import { formatDate, getBlogPosts, getSajuPosts, isSajuPost, postSlug, postUrl, relatedSajuPosts, type Post } from "../utils/posts";
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
@@ -35,6 +35,7 @@ if (!post) {
 const html = renderPostHtml(post.body || "");
 const dateIso = post.data.date.toISOString().split("T")[0];
 const ogImage = mediaUrl(post.data.cover_image);
+const related = isSajuPost(post) ? relatedSajuPosts(post, await getSajuPosts(), 3) : [];
 ---
 
 <Layout
@@ -55,6 +56,31 @@ const ogImage = mediaUrl(post.data.cover_image);
           </p>
         </header>
         <div class="post-body" set:html={html} />
+        {
+          related.length >= 2 && (
+            <section class="related-saju" aria-labelledby="related-saju-heading">
+              <h2 id="related-saju-heading">이어서 볼 사주</h2>
+              <p>이 글을 끝까지 보셨다면, 관련 인물 사주도 이어서 읽어 보세요.</p>
+              <ul class="related-saju-list">
+                {related.map((item) => (
+                  <li>
+                    <a href={postUrl(item)}>
+                      <div class="card-thumb">
+                        {item.data.cover_image ? (
+                          <img src={mediaUrl(item.data.cover_image)} alt="" />
+                        ) : (
+                          <span>{(item.data.name || item.data.title).slice(0, 1)}</span>
+                        )}
+                      </div>
+                      <strong>{item.data.name || item.data.title}</strong>
+                      <span>{item.data.title}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
       </article>
       <aside class="post-side" aria-label="사이드바">
         <div class="ad-slot ad-slot-side" aria-label="광고">
