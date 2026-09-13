@@ -3,10 +3,10 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { mediaUrl } from "../../site.config";
-import { formatDate, getBlogPosts, postUrl } from "../../utils/posts";
+import { formatDate, getSajuPosts, postUrl } from "../../utils/posts";
 
 const q = Astro.url.searchParams.get("q")?.trim() || "";
-const posts = await getBlogPosts();
+const posts = await getSajuPosts();
 const filtered = q
   ? posts.filter((post) => `${post.data.title} ${post.data.name || ""} ${post.data.description}`.includes(q))
   : posts;

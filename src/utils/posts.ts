@@ -19,6 +19,15 @@ export async function getBlogPosts(): Promise<Post[]> {
   }
 }
 
+export function isSajuPost(post: Post): boolean {
+  if (post.data.legacy) return false;
+  return Boolean(post.data.name) || post.data.title.includes("사주") || postSlug(post).includes("사주");
+}
+
+export async function getSajuPosts(): Promise<Post[]> {
+  return (await getBlogPosts()).filter(isSajuPost);
+}
+
 export type Face = {
   name: string;
   href: string;

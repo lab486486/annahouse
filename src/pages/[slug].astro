@@ -4,21 +4,34 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { mediaUrl } from "../site.config";
 import { renderPostHtml } from "../lib/render-post";
+import legacyRedirects from "../data/legacy-redirects.json";
 import { formatDate, getBlogPosts, postSlug, type Post } from "../utils/posts";
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
-  return posts.map((post) => ({
+  const postPaths = posts.map((post) => ({
     params: { slug: postSlug(post) },
-    props: { post },
+    props: { post, redirectTo: "" },
   }));
+  const redirectPaths = Object.entries(legacyRedirects.ids).map(([id, slug]) => ({
+    params: { slug: id },
+    props: { post: undefined as unknown as Post, redirectTo: `/${slug}/` },
+  }));
+  return [...postPaths, ...redirectPaths];
 }
 
 interface Props {
-  post: Post;
+  post?: Post;
+  redirectTo?: string;
 }
 
-const { post } = Astro.props;
+const { post, redirectTo } = Astro.props;
+if (redirectTo) {
+  return Astro.redirect(encodeURI(redirectTo), 301);
+}
+if (!post) {
+  return Astro.redirect("/404/", 404);
+}
 const html = renderPostHtml(post.body || "");
 const dateIso = post.data.date.toISOString().split("T")[0];
 const ogImage = mediaUrl(post.data.cover_image);

@@ -11,6 +11,7 @@ const blog = defineCollection({
     description: z.string(),
     cover_image: z.string().optional(),
     tags: z.array(z.string()).default([]),
+    legacy: z.boolean().optional(),
     name: z.string().optional(),
     birth_date: z.string().optional(),
     gender: z.string().optional(),

@@ -1,9 +1,9 @@
 import type { APIRoute } from "astro";
 import { site } from "../site.config";
-import { getBlogPosts, postUrl } from "../utils/posts";
+import { getSajuPosts, postUrl } from "../utils/posts";
 
 export const GET: APIRoute = async () => {
-  const posts = await getBlogPosts();
+  const posts = await getSajuPosts();
   const items = posts
     .map((post) => {
       const url = new URL(postUrl(post), site.baseUrl).href;
