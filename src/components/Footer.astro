@@ -1,9 +1,10 @@
 ---
-import { site } from "../site.config";
+const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="container">
-    <p>© {new Date().getFullYear()} {site.brandName}. 재미와 참고용 사주 분석입니다.</p>
+    <p class="footer-copy">Copyright © {year} 안나하우스 All rights reserved.</p>
+    <p class="footer-note">유명인들의 사주, 운세를 제공하는 사이트입니다.<br />재미와 참고용으로만 봐주세요.</p>
   </div>
 </footer>

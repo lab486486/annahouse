@@ -19,6 +19,54 @@ export async function getBlogPosts(): Promise<Post[]> {
   }
 }
 
+export type Face = {
+  name: string;
+  href: string;
+  image: string;
+  title: string;
+  description: string;
+  date?: Date;
+};
+
+function toFace(post: Post): Face {
+  return {
+    name: (post.data.name || "").trim(),
+    href: postUrl(post),
+    image: post.data.cover_image || "",
+    title: post.data.title,
+    description: post.data.description,
+    date: post.data.date,
+  };
+}
+
+export function celebrityFaces(posts: Post[], popularSlugs: string[] = []): Face[] {
+  const bySlug = new Map(posts.map((post) => [postSlug(post), post]));
+  const seen = new Set<string>();
+  const faces: Face[] = [];
+
+  for (const slug of popularSlugs) {
+    const post = bySlug.get(slug);
+    const name = post?.data.name?.trim();
+    if (!post || !name || seen.has(name)) continue;
+    seen.add(name);
+    faces.push(toFace(post));
+  }
+
+  for (const post of posts) {
+    const name = (post.data.name || "").trim();
+    if (!name || seen.has(name)) continue;
+    seen.add(name);
+    faces.push(toFace(post));
+  }
+  return faces;
+}
+
+export function popularCards(posts: Post[], popularSlugs: string[], limit = 6): Face[] {
+  const faces = celebrityFaces(posts, popularSlugs);
+  const picked = faces.slice(0, limit);
+  return picked;
+}
+
 export function formatDate(date: Date): string {
   return new Intl.DateTimeFormat("ko-KR", {
     year: "numeric",

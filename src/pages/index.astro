@@ -2,21 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { site } from "../site.config";
+import { mediaUrl } from "../site.config";
+import popular from "../data/popular.json";
 import stars from "../data/stars.json";
-import { formatDate, getBlogPosts, postUrl } from "../utils/posts";
+import { celebrityFaces, formatDate, getBlogPosts, popularCards } from "../utils/posts";
 
 const posts = await getBlogPosts();
-const postFaces = posts
-  .filter((post) => post.data.name)
-  .map((post) => ({
-    name: post.data.name as string,
-    href: postUrl(post),
-    image: post.data.cover_image || "",
-    title: post.data.title,
-    description: post.data.description,
-    date: post.data.date,
-  }));
+const postFaces = celebrityFaces(posts, popular.slugs).map((face) => ({
+  ...face,
+  image: mediaUrl(face.image) || "",
+}));
+const popularFaces = popularCards(posts, popular.slugs, 6).map((face) => ({
+  ...face,
+  image: mediaUrl(face.image) || "",
+}));
 const fallbackFaces = stars.map((star) => ({
   name: star.name,
   href: `/saju/star/?name=${encodeURIComponent(star.name)}`,
@@ -27,17 +26,42 @@ const fallbackFaces = stars.map((star) => ({
 }));
 const faces = postFaces.length ? postFaces : fallbackFaces;
 const ticker = [...faces, ...faces];
-const cards = postFaces.slice(0, 6);
+const cards = popularFaces.length ? popularFaces : postFaces.slice(0, 6);
+const marqueeSeconds = Math.max(42, faces.length * 1.6);
+const starsTwinkle = [
+  [8, 12, 1.6, 0],
+  [14, 22, 1.1, 0.8],
+  [22, 9, 2.2, 1.4],
+  [28, 18, 1.3, 0.3],
+  [18, 28, 0.9, 1.1],
+  [6, 32, 1.4, 1.8],
+  [33, 14, 1.8, 0.5],
+  [11, 8, 1.0, 2.1],
+  [25, 26, 1.2, 0.2],
+  [16, 16, 2.0, 1.6],
+  [4, 20, 1.1, 0.9],
+  [31, 6, 1.5, 2.4],
+  [20, 11, 0.8, 0.4],
+  [9, 24, 1.7, 1.3],
+  [36, 20, 1.0, 2.0],
+] as const;
 ---
 
 <Layout>
-  <Header />
   <main id="main">
     <section class="hero-portal">
+      <div class="hero-sky" aria-hidden="true">
+        {starsTwinkle.map(([left, top, size, delay]) => (
+          <span
+            class="hero-star"
+            style={`left:${left}%;top:${top}%;width:${size}px;height:${size}px;animation-delay:${delay}s`}
+          />
+        ))}
+      </div>
+      <Header overlay />
       <div class="hero-portal-inner container">
-        <p class="eyebrow">유명인 사주 검색</p>
-        <h1>{site.name}</h1>
-        <p class="lede">이름만 넣으면 됩니다. 글이 있으면 바로 열고, 없으면 만세력·궁합으로 이어집니다.</p>
+        <h1>하늘이 맺어준 소중한 인연</h1>
+        <p class="lede">유명인의 이름으로 검색해보세요! 그의 사주와 운세를 알아봅시다</p>
         <form class="search-box" id="home-search" action="/saju/" method="get">
           <label class="sr-only" for="q">사주 검색</label>
           <input id="q" name="q" type="search" placeholder="아이유, 손흥민…" autocomplete="off" />
@@ -45,7 +69,7 @@ const cards = postFaces.slice(0, 6);
         </form>
       </div>
       <div class="face-marquee" aria-label="인기 사주 대상">
-        <div class="face-track">
+        <div class="face-track" style={`animation-duration: ${marqueeSeconds}s`}>
           {
             ticker.map((face) => (
               <a class="face" href={face.href} data-name={face.name}>
@@ -61,11 +85,11 @@ const cards = postFaces.slice(0, 6);
     <section class="container home-block">
       <div class="block-head">
         <h2>지금 많이 찾는 사주</h2>
-        <a href="/saju/">사주 전체</a>
+        <a href="/saju/">전체보기</a>
       </div>
       {
         cards.length ? (
-          <ul class="card-grid">
+          <ul class="card-grid card-grid-featured">
             {cards.map((card) => (
               <li>
                 <a href={card.href}>
@@ -78,7 +102,7 @@ const cards = postFaces.slice(0, 6);
             ))}
           </ul>
         ) : (
-          <ul class="card-grid">
+          <ul class="card-grid card-grid-featured">
             {fallbackFaces.slice(0, 6).map((card) => (
               <li>
                 <a href={card.href}>

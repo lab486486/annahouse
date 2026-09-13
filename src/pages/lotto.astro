@@ -3,66 +3,70 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import draws from "../data/lotto-draws.json";
-import { recommendLotto, type LottoDraw } from "../lib/lotto";
+import { ballClass, formatKoDate, recommendLottoGames, type LottoDraw } from "../lib/lotto";
 
 const history = draws as LottoDraw[];
-const first = recommendLotto(history);
-const latest = first.latest;
-const recent = history.slice(0, 8);
+const { games, latest } = recommendLottoGames(history);
+const past = history.slice(0, 40);
 ---
 
-<Layout title="로또" description="지난 회차와 통계로 뽑은 추천 번호를 봅니다.">
+<Layout title="로또" description="지난 회차와 이번 주 추천 번호 5게임을 봅니다.">
   <Header />
   <main id="main" class="page-plain">
-    <div class="container">
-      <p class="eyebrow">로또 6/45</p>
-      <h1>로또 번호</h1>
-      <p class="lede">지난 회차를 보여 주고, 같은 달·같은 주·최근 미출현 빈도로 번호 6개를 뽑습니다. 당첨 확률을 올리지 않습니다. 재미와 참고용입니다.</p>
+    <div class="container lotto-page">
+      <div class="lotto-wrap">
+        <div class="lotto-main">
+          <p class="eyebrow">로또 6/45</p>
+          <h1>로또 번호</h1>
+          <p class="lede">과거 이번 달에 당첨되었던 숫자와 미출현 숫자를 조합하여 번호를 추천합니다.</p>
+          <p class="lede lotto-lede-follow">과연 이번주 추천 번호는 얼마나 적중할까요?</p>
 
-      {
-        latest && (
-          <section class="result-box">
-            <h2>{latest.no}회 · {latest.date}</h2>
-            <p class="balls">
-              {latest.numbers.map((n) => <span>{n}</span>)}
-              <span class="bonus">+ {latest.bonus}</span>
-            </p>
+          {
+            latest && (
+              <section class="result-box lotto-latest">
+                <h2>지난 회차</h2>
+                <p class="lotto-draw-meta">{latest.no}회 · {formatKoDate(latest.date)}</p>
+                <p class="balls">
+                  {latest.numbers.map((n) => <span class={ballClass(n)}>{n}</span>)}
+                  <span class={`bonus ${ballClass(latest.bonus)}`}>+ {latest.bonus}</span>
+                </p>
+              </section>
+            )
+          }
+
+          <section class="result-box lotto-picks">
+            <h2>이번주 추천 번호</h2>
+            <p class="lotto-note">당첨 확률을 올리지는 않습니다. 재미와 참고용입니다.</p>
+            <ol class="lotto-games" id="lotto-games">
+              {games.map((game) => (
+                <li>
+                  <p class="lotto-game-title">{game.title}</p>
+                  <p class="lotto-game-blurb">{game.blurb}</p>
+                  <p class="balls">
+                    {game.numbers.map((n) => <span class={ballClass(n)}>{n}</span>)}
+                  </p>
+                </li>
+              ))}
+            </ol>
+            <button class="primary-btn" id="lotto-again" type="button">다시 뽑기</button>
           </section>
-        )
-      }
+        </div>
 
-      <section class="result-box">
-        <h2>이번 추천</h2>
-        <p class="balls" id="lotto-balls">
-          {first.picks.map((pick) => <span title={pick.reasons.join(", ")}>{pick.number}</span>)}
-        </p>
-        <ul id="lotto-why">
-          {first.picks.map((pick) => (
-            <li>
-              <strong>{pick.number}</strong> — {pick.reasons.join(" · ")}
-            </li>
-          ))}
-        </ul>
-        <button class="primary-btn" id="lotto-again" type="button">다시 뽑기</button>
-      </section>
-
-      <section class="home-block">
-        <h2>최근 회차</h2>
-        <table class="lotto-table">
-          <thead>
-            <tr><th>회차</th><th>날짜</th><th>번호</th></tr>
-          </thead>
-          <tbody>
-            {recent.map((draw) => (
-              <tr>
-                <td>{draw.no}</td>
-                <td>{draw.date}</td>
-                <td>{draw.numbers.join(" · ")} + {draw.bonus}</td>
-              </tr>
+        <aside class="lotto-side" aria-label="과거 당첨 번호">
+          <h2>과거 당첨 번호</h2>
+          <ol class="lotto-history">
+            {past.map((draw) => (
+              <li>
+                <p class="lotto-draw-meta">{draw.no}회 · {formatKoDate(draw.date)}</p>
+                <p class="balls balls-sm">
+                  {draw.numbers.map((n) => <span class={ballClass(n)}>{n}</span>)}
+                  <span class={`bonus ${ballClass(draw.bonus)}`}>+ {draw.bonus}</span>
+                </p>
+              </li>
             ))}
-          </tbody>
-        </table>
-      </section>
+          </ol>
+        </aside>
+      </div>
     </div>
   </main>
   <Footer />
@@ -70,19 +74,20 @@ const recent = history.slice(0, 8);
 
 <script>
   import draws from "../data/lotto-draws.json";
-  import { recommendLotto, type LottoDraw } from "../lib/lotto";
+  import { ballClass, recommendLottoGames, type LottoDraw } from "../lib/lotto";
 
   const history = draws as LottoDraw[];
-  const balls = document.querySelector("#lotto-balls");
-  const why = document.querySelector("#lotto-why");
+  const list = document.querySelector("#lotto-games");
 
   document.querySelector("#lotto-again")?.addEventListener("click", () => {
-    const next = recommendLotto(history);
-    if (balls) {
-      balls.innerHTML = next.picks.map((pick) => `<span title="${pick.reasons.join(", ")}">${pick.number}</span>`).join("");
-    }
-    if (why) {
-      why.innerHTML = next.picks.map((pick) => `<li><strong>${pick.number}</strong> — ${pick.reasons.join(" · ")}</li>`).join("");
-    }
+    const next = recommendLottoGames(history);
+    if (!list) return;
+    list.innerHTML = next.games.map((game) => `
+      <li>
+        <p class="lotto-game-title">${game.title}</p>
+        <p class="lotto-game-blurb">${game.blurb}</p>
+        <p class="balls">${game.numbers.map((n) => `<span class="${ballClass(n)}">${n}</span>`).join("")}</p>
+      </li>
+    `).join("");
   });
 </script>

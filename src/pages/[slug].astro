@@ -2,9 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { site } from "../site.config";
+import { mediaUrl } from "../site.config";
 import { renderPostHtml } from "../lib/render-post";
-import { absoluteAssetUrl, formatDate, getBlogPosts, postSlug, type Post } from "../utils/posts";
+import { formatDate, getBlogPosts, postSlug, type Post } from "../utils/posts";
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
@@ -21,7 +21,7 @@ interface Props {
 const { post } = Astro.props;
 const html = renderPostHtml(post.body || "");
 const dateIso = post.data.date.toISOString().split("T")[0];
-const ogImage = absoluteAssetUrl(post.data.cover_image, site.baseUrl);
+const ogImage = mediaUrl(post.data.cover_image);
 ---
 
 <Layout
@@ -33,15 +33,32 @@ const ogImage = absoluteAssetUrl(post.data.cover_image, site.baseUrl);
 >
   <Header />
   <main id="main" class="post-page">
-    <article class="container post-article">
-      <header class="post-header">
-        <h1>{post.data.title}</h1>
-        <p class="post-meta">
-          <time datetime={dateIso}>{formatDate(post.data.date)}</time>
-        </p>
-      </header>
-      <div class="post-body" set:html={html} />
-    </article>
+    <div class="container post-wrap">
+      <article class="post-article">
+        <header class="post-header">
+          <h1>{post.data.title}</h1>
+          <p class="post-meta">
+            <time datetime={dateIso}>{formatDate(post.data.date)}</time>
+          </p>
+        </header>
+        <div class="post-body" set:html={html} />
+      </article>
+      <aside class="post-side" aria-label="사이드바">
+        <div class="ad-slot ad-slot-side" aria-label="광고">
+          <ins
+            class="adsbygoogle"
+            style="display:inline-block;width:300px;height:600px"
+            data-ad-client="ca-pub-7643658138527330"
+            data-ad-slot="6882189180"></ins>
+        </div>
+      </aside>
+    </div>
   </main>
   <Footer />
 </Layout>
+
+<script>
+  const slots = document.querySelectorAll(".ad-slot ins.adsbygoogle");
+  const ads = ((window as Window & { adsbygoogle?: unknown[] }).adsbygoogle ||= []);
+  slots.forEach(() => ads.push({}));
+</script>

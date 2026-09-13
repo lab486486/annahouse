@@ -9,7 +9,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "cms": "npx decap-server",
-    "publish:saju": "python3 scripts/publish_saju.py"
+    "publish:saju": "python3 scripts/publish_saju.py",
+    "import:wxr": "node scripts/import-wxr.mjs",
+    "upload:r2": "node scripts/upload-r2.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.0",

@@ -7,5 +7,7 @@ dist/
 saju/.env
 Saju.zip
 saju/tmp/
+public/wp-content/
+scripts/.wxr-images.json
 __pycache__/
 *.pyc
