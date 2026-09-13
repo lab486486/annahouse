@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Achive/{id}/img → public/wp-content/uploads/tistory/{id}/
- * 숫자 퍼머링크와 맞는 옛 글에 백업 사진을 서론/소제목/결론 단위로 나눠 넣습니다.
+ * 숫자 퍼머링크와 맞는 옛 글에 백업 사진을 문장 사이에 1~2장씩 끼워 넣습니다.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -104,150 +104,95 @@ function photoMarkup(urls) {
   return `<div class="photo-grid">\n${items}\n</div>\n`;
 }
 
-function pairsOf(urls) {
-  const pairs = [];
-  for (let i = 0; i < urls.length; i += 2) pairs.push(urls.slice(i, i + 2));
-  return pairs;
+function visibleText(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-function renderPairs(pairs) {
-  return pairs.map(photoMarkup).join("");
+function classifyToken(html) {
+  const trimmed = html.trim();
+  if (!trimmed) return "empty";
+  if (trimmed === SLOT) return "slot";
+  if (/^<h[1-6]\b/i.test(trimmed)) return "heading";
+  if (/^<div class="video-wrap">/i.test(trimmed)) return "video";
+  if (/class="photo-(?:grid|single)"/i.test(trimmed)) return "photo";
+  if (visibleText(trimmed).length >= 8) return "text";
+  return "other";
 }
 
-function splitBlocks(html) {
-  const parts = html.split(/(?=<p\b|<div\b|<h[1-6]\b|<ul\b|<ol\b|<blockquote\b|<figure\b)|(?:\n{2,})/i);
-  return parts.filter((part) => part.trim() && !/^<figure\b[^>]*>\s*<\/figure>$/i.test(part.trim()));
+function splitLoose(html) {
+  const type = classifyToken(html);
+  if (type !== "text") return [{ type, html }];
+  const parts = html
+    .split(/(?:\r?\n)[ \t]*(?:\r?\n)+/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => ({ type: classifyToken(part), html: part }));
+  return parts.length ? parts : [{ type, html }];
 }
 
-function sprinkle(body, pairs) {
-  if (!pairs.length) return body;
-  const blocks = splitBlocks(body);
-  if (blocks.length < 2) {
-    return `${renderPairs(pairs.slice(0, 1))}${body}${renderPairs(pairs.slice(1))}`;
+function tokenize(html) {
+  const re =
+    /(<h[1-6]\b[\s\S]*?<\/h[1-6]>|<div class="video-wrap">[\s\S]*?<\/div>|<!--PHOTO_SLOT-->|<p\b[\s\S]*?<\/p>)/gi;
+  const tokens = [];
+  let last = 0;
+  let match;
+  while ((match = re.exec(html))) {
+    const before = html.slice(last, match.index);
+    if (before.trim()) tokens.push(...splitLoose(before));
+    tokens.push({ type: classifyToken(match[0]), html: match[0] });
+    last = match.index + match[0].length;
   }
-  const extra = pairs.slice(1);
-  const step = extra.length ? Math.max(1, Math.ceil((blocks.length - 1) / extra.length)) : blocks.length;
-  let out = `${renderPairs(pairs.slice(0, 1))}${blocks[0]}`;
-  let extraIdx = 0;
-  for (let i = 1; i < blocks.length; i++) {
-    out += blocks[i];
-    if (extraIdx < extra.length && i % step === 0) {
-      out += renderPairs([extra[extraIdx++]]);
-    }
-  }
-  if (extraIdx < extra.length) out += renderPairs(extra.slice(extraIdx));
-  return out;
+  const tail = html.slice(last);
+  if (tail.trim()) tokens.push(...splitLoose(tail));
+  return tokens.filter((token) => token.type !== "empty");
 }
 
-function parseParts(html) {
-  const matches = [...html.matchAll(/<h([23])\b[^>]*>[\s\S]*?<\/h[23]>/gi)];
-  if (!matches.length) {
-    return { title: "", intro: html, sections: [] };
-  }
-
-  let title = "";
-  let restStart = 0;
-  let sectionMatches = matches;
-  const first = matches[0];
-  if (first[1] === "2") {
-    title = html.slice(0, first.index + first[0].length);
-    restStart = first.index + first[0].length;
-    sectionMatches = matches.slice(1);
-  }
-
-  if (!sectionMatches.length) {
-    return { title, intro: html.slice(restStart), sections: [] };
-  }
-
-  const intro = html.slice(restStart, sectionMatches[0].index);
-  const sections = sectionMatches.map((match, index) => {
-    const end = sectionMatches[index + 1] ? sectionMatches[index + 1].index : html.length;
-    return {
-      heading: match[0],
-      body: html.slice(match.index + match[0].length, end),
-    };
-  });
-  return { title, intro, sections };
+function takePhotos(queue) {
+  if (!queue.length) return "";
+  const count = queue.length >= 2 ? 2 : 1;
+  return photoMarkup(queue.splice(0, count));
 }
 
-function takePairs(queue, count) {
-  return queue.splice(0, count);
-}
-
-function fillSlots(html, queue) {
-  return html.replaceAll(SLOT, () => {
-    if (!queue.length) return "";
-    return photoMarkup(queue.shift());
-  });
-}
-
-function splitThirds(html) {
-  const blocks = splitBlocks(html);
-  if (blocks.length < 3) {
-    return [html, "", ""];
-  }
-  const first = Math.ceil(blocks.length / 3);
-  const second = Math.ceil((blocks.length - first) / 2);
-  return [
-    blocks.slice(0, first).join(""),
-    blocks.slice(first, first + second).join(""),
-    blocks.slice(first + second).join(""),
-  ];
+function lastType(tokens) {
+  return tokens.at(-1)?.type;
 }
 
 function insertPhotos(html, urls) {
-  const queue = pairsOf(urls);
-  const parts = parseParts(html);
-  parts.intro = fillSlots(parts.intro, queue);
-  for (const section of parts.sections) {
-    section.body = fillSlots(section.body, queue);
-  }
+  const queue = [...urls];
+  const tokens = tokenize(html.replace(/\r\n/g, "\n").replaceAll(SLOT, `${SLOT}`));
+  const textTotal = tokens.filter((token) => token.type === "text").length;
+  const out = [];
+  let textSeen = 0;
 
-  const assigned = { intro: [], mid: [], end: [], sections: parts.sections.map(() => []) };
-
-  if (parts.sections.length) {
-    const last = parts.sections.length - 1;
-    const middle = parts.sections.map((_, index) => index).filter((index) => index !== last);
-    const slots = ["intro", last, ...middle];
-    const filled = {
-      intro: /class="photo-(?:grid|single)"/.test(parts.intro),
-      sections: parts.sections.map((section) => /class="photo-(?:grid|single)"/.test(section.body)),
-    };
-    const firstPass = slots.filter((slot) =>
-      slot === "intro" ? !filled.intro : !filled.sections[slot],
-    );
-    for (const slot of firstPass) {
-      if (!queue.length) break;
-      if (slot === "intro") assigned.intro.push(queue.shift());
-      else assigned.sections[slot].push(queue.shift());
+  for (const token of tokens) {
+    if (token.type === "slot") {
+      if (textSeen && textSeen < textTotal && queue.length && lastType(out) !== "photo") {
+        out.push({ type: "photo", html: takePhotos(queue) });
+      }
+      continue;
     }
-    const extras = parts.sections.length ? parts.sections.map((_, index) => index) : ["intro"];
-    let extraIdx = 0;
-    while (queue.length) {
-      const target = extras[extraIdx % extras.length];
-      assigned.sections[target].push(queue.shift());
-      extraIdx += 1;
+    out.push(token);
+    if (token.type !== "text") continue;
+    textSeen += 1;
+    if (textSeen < textTotal && queue.length && lastType(out) !== "photo") {
+      out.push({ type: "photo", html: takePhotos(queue) });
     }
-    const introOut = assigned.intro.length ? `${parts.intro.trimEnd()}\n${renderPairs(assigned.intro)}` : parts.intro;
-    const sectionOut = parts.sections
-      .map((section, index) => `${section.heading}\n${sprinkle(section.body, assigned.sections[index])}`)
-      .join("\n");
-    return `${parts.title}\n${introOut}\n${sectionOut}`;
   }
 
-  const thirds = splitThirds(parts.intro);
-  const labels = ["intro", "mid", "end"];
-  for (const label of labels) {
-    if (!queue.length) break;
-    assigned[label].push(queue.shift());
+  if (queue.length && textTotal <= 1) {
+    const lastText = [...out].reverse().find((token) => token.type === "text");
+    if (lastText && lastType(out) !== "photo") {
+      out.push({ type: "photo", html: takePhotos(queue) });
+    }
   }
-  let extraIdx = 0;
-  const extraTargets = ["mid", "end", "intro"];
-  while (queue.length) {
-    assigned[extraTargets[extraIdx % extraTargets.length]].push(queue.shift());
-    extraIdx += 1;
-  }
-  return `${parts.title}\n${sprinkle(thirds[0], assigned.intro)}${sprinkle(thirds[1], assigned.mid)}${sprinkle(thirds[2], assigned.end)}`;
+
+  return out.map((token) => token.html).join("\n");
 }
 
 function updateCover(front, firstUrl) {
