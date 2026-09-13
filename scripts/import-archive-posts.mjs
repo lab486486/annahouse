@@ -132,8 +132,9 @@ function frontmatter(data) {
     `date: ${data.date}`,
     `description: ${yamlQuote(data.description)}`,
     "legacy: true",
-    "tags:",
-    ...data.tags.map((tag) => `  - ${yamlQuote(tag)}`),
+    ...(data.tags.length
+      ? ["tags:", ...data.tags.map((tag) => `  - ${yamlQuote(tag)}`)]
+      : ["tags: []"]),
     "---",
     "",
   ];
