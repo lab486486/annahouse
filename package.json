@@ -1,0 +1,23 @@
+{
+  "name": "annahouse",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "cms": "npx decap-server",
+    "publish:saju": "python3 scripts/publish_saju.py"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.4.0",
+    "astro": "^5.8.0",
+    "marked": "^15.0.12"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^5.8.0"
+  }
+}

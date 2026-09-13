@@ -1,0 +1,37 @@
+---
+import { site } from "../site.config";
+
+const path = Astro.url.pathname;
+const isSaju = path.startsWith("/saju");
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="/">{site.brandName}</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">메뉴</button>
+    <nav id="site-nav">
+      <a href="/" class={path === "/" ? "is-current" : undefined}>메인</a>
+      <a href="/about/" class={path.startsWith("/about") ? "is-current" : undefined}>소개</a>
+      <div class:list={["nav-dd", isSaju && "is-current"]}>
+        <a href="/saju/">사주</a>
+        <div class="nav-dd-menu">
+          <a href="/saju/">유명인 사주</a>
+          <a href="/saju/manse/">만세력 보기</a>
+          <a href="/saju/gunghap/">애정궁합</a>
+          <a href="/saju/star/">스타와 궁합</a>
+          <a href="/saju/blood/">혈액형 궁합</a>
+        </div>
+      </div>
+      <a href="/lotto/" class={path.startsWith("/lotto") ? "is-current" : undefined}>로또</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector("#site-nav");
+  toggle?.addEventListener("click", () => {
+    const open = nav?.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+</script>

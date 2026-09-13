@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import stars from "../../data/stars.json";
+import { getBlogPosts } from "../../utils/posts";
+
+const posts = await getBlogPosts();
+const fromPosts = posts
+  .filter((post) => post.data.name && post.data.birth_date)
+  .map((post) => ({ name: post.data.name as string, birth_date: post.data.birth_date as string, gender: post.data.gender || "남" }));
+const people = fromPosts.length ? fromPosts : stars;
+const selected = Astro.url.searchParams.get("name") || people[0]?.name || "";
+---
+
+<Layout title="스타와 궁합" description="내 생일과 유명인 사주를 비교합니다.">
+  <Header />
+  <main id="main" class="page-plain">
+    <div class="container narrow">
+      <p class="eyebrow">사주</p>
+      <h1>스타와 궁합</h1>
+      <p class="lede">내 생년월일과 유명인 생일을 비교합니다. 사이트에 글이 생기면 그 생일을 씁니다.</p>
+      <form id="star-form" class="saju-form">
+        <label><span>나</span><input name="me" required placeholder="내 이름" /></label>
+        <label><span>내 생년월일</span><input name="date" type="date" required /></label>
+        <label>
+          <span>상대 스타</span>
+          <select name="star">
+            {people.map((person) => (
+              <option value={`${person.name}|${person.birth_date}`} selected={person.name === selected}>
+                {person.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button class="primary-btn" type="submit">궁합 보기</button>
+      </form>
+      <div id="star-out" class="result-box" hidden></div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import { calculateSaju, gunghapScore, parseYmd } from "../../lib/saju";
+
+  document.querySelector("#star-form")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const data = new FormData(form);
+    const me = parseYmd(String(data.get("date") || ""));
+    const [starName, starDate] = String(data.get("star") || "").split("|");
+    const star = parseYmd(starDate);
+    const out = document.querySelector<HTMLElement>("#star-out");
+    if (!me || !star || !out) return;
+    const result = gunghapScore(calculateSaju(me), calculateSaju(star));
+    out.hidden = false;
+    out.innerHTML = `<h2>${data.get("me")} × ${starName}</h2>
+      <p class="score">${result.score}점 · ${result.label}</p>
+      <ul>${result.notes.map((note) => `<li>${note}</li>`).join("")}</ul>`;
+  });
+</script>

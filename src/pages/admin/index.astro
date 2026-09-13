@@ -1,0 +1,210 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { formatDate, getBlogPosts, postUrl } from "../../utils/posts";
+
+const posts = await getBlogPosts();
+const hours = Array.from({ length: 24 }, (_, hour) => hour);
+---
+
+<Layout title="사주 작성" description="이름과 생년월일로 사주 글을 넣습니다." noindex>
+  <Header />
+  <main id="main" class="admin-page">
+    <div class="container">
+      <p class="eyebrow">관리자</p>
+      <h1>사주 넣기</h1>
+      <p class="lede">블로그 글 에디터가 아닙니다. 이름·생년월일만 넣으면 대기 목록에 쌓이고, 나중에 GitHub Action이 글을 만듭니다.</p>
+
+      <div class="admin-tabs" role="tablist">
+        <button type="button" class="is-active" data-tab="write" role="tab" aria-selected="true">사주 작성</button>
+        <button type="button" data-tab="queue" role="tab" aria-selected="false">작성 대기</button>
+        <button type="button" data-tab="posts" role="tab" aria-selected="false">발행된 글</button>
+      </div>
+
+      <section id="panel-write" class="admin-panel" data-panel="write">
+        <form id="saju-form" class="saju-form">
+          <label>
+            <span>이름</span>
+            <input type="text" name="name" required placeholder="예: 윤경호" autocomplete="off" />
+          </label>
+          <label>
+            <span>생년월일</span>
+            <input type="date" name="birth_date" required />
+          </label>
+          <fieldset>
+            <legend>성별</legend>
+            <label class="choice"><input type="radio" name="gender" value="남" checked /> 남</label>
+            <label class="choice"><input type="radio" name="gender" value="여" /> 여</label>
+          </fieldset>
+          <label>
+            <span>출생 시각</span>
+            <select name="birth_hour">
+              {hours.map((hour) => (
+                <option value={hour} selected={hour === 12}>
+                  {String(hour).padStart(2, "0")}시{hour === 12 ? " (모를 때)" : ""}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            <span>썸네일 주소</span>
+            <input type="url" name="cover_url" placeholder="https:// 또는 아래에서 파일 선택" />
+          </label>
+          <label>
+            <span>썸네일 파일</span>
+            <input type="file" name="cover_file" accept="image/jpeg,image/png,image/webp,image/gif" />
+          </label>
+          <label>
+            <span>메모</span>
+            <textarea name="note" rows="2" placeholder="선택. 예: 뉴스 출연 시점"></textarea>
+          </label>
+          <p id="form-status" class="form-status" role="status"></p>
+          <button type="submit" class="primary-btn">대기 목록에 넣기</button>
+        </form>
+      </section>
+
+      <section id="panel-queue" class="admin-panel is-hidden" data-panel="queue" hidden>
+        <ul id="queue-list" class="admin-list"></ul>
+      </section>
+
+      <section id="panel-posts" class="admin-panel is-hidden" data-panel="posts" hidden>
+        {
+          posts.length === 0 ? (
+            <p class="empty">아직 발행된 글이 없습니다. 사주를 넣고 GitHub Action이 돌면 여기에 보입니다.</p>
+          ) : (
+            <ul class="admin-list">
+              {posts.map((post) => (
+                <li>
+                  <a href={postUrl(post)}>
+                    <strong>{post.data.title}</strong>
+                    <span>{formatDate(post.data.date)}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".admin-tabs button");
+  const panels = document.querySelectorAll<HTMLElement>("[data-panel]");
+  const form = document.querySelector<HTMLFormElement>("#saju-form");
+  const statusEl = document.querySelector<HTMLElement>("#form-status");
+  const queueList = document.querySelector<HTMLElement>("#queue-list");
+
+  function showTab(name: string) {
+    tabs.forEach((tab) => {
+      const active = tab.dataset.tab === name;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
+    });
+    panels.forEach((panel) => {
+      const active = panel.dataset.panel === name;
+      panel.hidden = !active;
+      panel.classList.toggle("is-hidden", !active);
+    });
+    if (name === "queue") void loadQueue();
+  }
+
+  function setStatus(message: string, kind: "ok" | "error" | "") {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    statusEl.dataset.kind = kind;
+  }
+
+  async function loadQueue() {
+    if (!queueList) return;
+    try {
+      const res = await fetch("/api/saju-queue/");
+      const data = await res.json();
+      const items = Array.isArray(data.items) ? data.items : [];
+      if (!items.length) {
+        queueList.innerHTML = "<li class=\"empty\">대기 중인 사주가 없습니다.</li>";
+        return;
+      }
+      queueList.innerHTML = items
+        .map((item: { name: string; birth_date: string; gender: string; birth_hour: string; status: string }) => {
+          const label = item.status === "pending" ? "대기" : item.status === "done" ? "완료" : item.status === "error" ? "오류" : item.status;
+          return `<li><strong>${item.name}</strong><span>${item.birth_date} · ${item.gender} · ${item.birth_hour}시</span><em data-status="${item.status}">${label}</em></li>`;
+        })
+        .join("");
+    } catch {
+      queueList.innerHTML = "<li class=\"empty\">목록을 불러오지 못했습니다. npm run dev 로 켜져 있는지 확인해 주세요.</li>";
+    }
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => showTab(tab.dataset.tab || "write"));
+  });
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!form) return;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const birthDate = String(data.get("birth_date") || "").trim();
+    const gender = String(data.get("gender") || "남");
+    const birthHour = Number(data.get("birth_hour"));
+    const note = String(data.get("note") || "").trim();
+    let cover = String(data.get("cover_url") || "").trim();
+    const file = data.get("cover_file");
+
+    setStatus("저장 중…", "");
+    try {
+      if (file instanceof File && file.size > 0) {
+        const buffer = await file.arrayBuffer();
+        const bytes = new Uint8Array(buffer);
+        let binary = "";
+        bytes.forEach((byte) => {
+          binary += String.fromCharCode(byte);
+        });
+        const upload = await fetch("/api/saju-upload/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            filename: file.name,
+            mime: file.type,
+            data: btoa(binary),
+          }),
+        });
+        const uploaded = await upload.json();
+        if (!upload.ok) throw new Error(uploaded.error || "이미지 업로드 실패");
+        cover = uploaded.url;
+      }
+
+      const res = await fetch("/api/saju-queue/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          birth_date: birthDate,
+          gender,
+          birth_hour: birthHour,
+          cover_image: cover,
+          note,
+        }),
+      });
+      const result = await res.json();
+      if (!res.ok) throw new Error(result.error || "저장 실패");
+      form.reset();
+      const hourSelect = form.querySelector<HTMLSelectElement>("[name=birth_hour]");
+      if (hourSelect) hourSelect.value = "12";
+      setStatus(`${name} 님을 대기 목록에 넣었습니다.`, "ok");
+      showTab("queue");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "저장에 실패했습니다.";
+      setStatus(
+        message.includes("Failed to fetch")
+          ? "저장 API가 없습니다. 터미널에서 npm run dev 로 사이트를 켜 주세요."
+          : message,
+        "error",
+      );
+    }
+  });
+</script>

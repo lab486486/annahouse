@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../site.config";
+---
+
+<Layout title="소개" description="사주언니 안나의 집을 소개합니다.">
+  <Header />
+  <main id="main" class="page-plain">
+    <div class="container narrow">
+      <p class="eyebrow">소개</p>
+      <h1>{site.name}</h1>
+      <p>유명인의 사주를 모아 보고, 내 생년월일로 만세력과 궁합을 가볍게 풀어 보는 집입니다. 사주 글은 관리자가 이름과 생일을 넣으면 만들어지고, 계산기와 로또는 브라우저에서 바로 돌아갑니다.</p>
+      <p>만세력은 절기 날짜를 근사로 쓰므로 절기 경계일에는 월주가 다를 수 있습니다. 로또 번호는 지난 회차 빈도로 뽑을 뿐, 당첨이 잘 되게 만들지 않습니다. 재미와 참고용입니다.</p>
+    </div>
+  </main>
+  <Footer />
+</Layout>

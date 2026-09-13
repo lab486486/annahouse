@@ -1,0 +1,45 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { BLOOD_TYPES } from "../../lib/blood";
+---
+
+<Layout title="혈액형 궁합" description="혈액형으로 가볍게 궁합을 봅니다.">
+  <Header />
+  <main id="main" class="page-plain">
+    <div class="container narrow">
+      <p class="eyebrow">사주</p>
+      <h1>혈액형 궁합</h1>
+      <p class="lede">사주 본편이 아닙니다. 가벼운 참고용입니다.</p>
+      <form id="blood-form" class="saju-form">
+        <label>
+          <span>내 혈액형</span>
+          <select name="a">{BLOOD_TYPES.map((type) => <option value={type}>{type}형</option>)}</select>
+        </label>
+        <label>
+          <span>상대 혈액형</span>
+          <select name="b">{BLOOD_TYPES.map((type) => <option value={type}>{type}형</option>)}</select>
+        </label>
+        <button class="primary-btn" type="submit">궁합 보기</button>
+      </form>
+      <div id="blood-out" class="result-box" hidden></div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import { bloodGunghap, type BloodType } from "../../lib/blood";
+
+  document.querySelector("#blood-form")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const data = new FormData(form);
+    const result = bloodGunghap(String(data.get("a")) as BloodType, String(data.get("b")) as BloodType);
+    const out = document.querySelector<HTMLElement>("#blood-out");
+    if (!out) return;
+    out.hidden = false;
+    out.innerHTML = `<p class="score">${result.score}점</p><p>${result.blurb}</p>`;
+  });
+</script>

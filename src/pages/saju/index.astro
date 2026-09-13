@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { formatDate, getBlogPosts, postUrl } from "../../utils/posts";
+
+const q = Astro.url.searchParams.get("q")?.trim() || "";
+const posts = await getBlogPosts();
+const filtered = q
+  ? posts.filter((post) => `${post.data.title} ${post.data.name || ""} ${post.data.description}`.includes(q))
+  : posts;
+---
+
+<Layout title="사주" description="유명인 사주 글과 계산기를 한곳에서 봅니다.">
+  <Header />
+  <main id="main" class="page-plain">
+    <div class="container">
+      <p class="eyebrow">사주</p>
+      <h1>유명인 사주</h1>
+      <p class="lede">글로 읽는 사주와, 숫자로 풀어 보는 계산기를 같이 둡니다.</p>
+      <div class="tool-row">
+        <a class="tool-chip" href="/saju/manse/">만세력 보기</a>
+        <a class="tool-chip" href="/saju/gunghap/">애정궁합</a>
+        <a class="tool-chip" href="/saju/star/">스타와 궁합</a>
+        <a class="tool-chip" href="/saju/blood/">혈액형 궁합</a>
+      </div>
+      <form class="search-box search-box-light" action="/saju/" method="get">
+        <label class="sr-only" for="saju-q">사주 검색</label>
+        <input id="saju-q" name="q" type="search" value={q} placeholder="이름 검색" />
+        <button type="submit">검색</button>
+      </form>
+      {
+        filtered.length ? (
+          <ul class="card-grid">
+            {filtered.map((post) => (
+              <li>
+                <a href={postUrl(post)}>
+                  <h3>{post.data.title}</h3>
+                  <p>{post.data.description}</p>
+                  <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="empty">{q ? `"${q}" 글이 아직 없습니다. 만세력이나 스타 궁합으로 먼저 보세요.` : "아직 발행된 사주 글이 없습니다. 계산기는 바로 쓸 수 있습니다."}</p>
+        )
+      }
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,62 @@
+# Decap CMS — 선택용. 기본 관리자는 /admin/ 사주 작성 화면입니다.
+
+locale: ko
+
+backend:
+  name: github
+  repo: lab486486/annahouse
+  branch: main
+
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+slug:
+  encoding: unicode
+  clean_accents: true
+
+collections:
+  - name: queue
+    label: 사주 지시
+    folder: src/content/queue
+    create: true
+    slug: "{{name}}"
+    extension: md
+    format: frontmatter
+    identifier_field: name
+    fields:
+      - { label: 이름, name: name, widget: string }
+      - label: 생년월일
+        name: birth_date
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+      - { label: 성별, name: gender, widget: select, options: ["남", "여"], default: "남" }
+      - { label: 출생 시각, name: birth_hour, widget: number, default: 12, min: 0, max: 23 }
+      - { label: 썸네일, name: cover_image, widget: image, required: false }
+      - { label: 상태, name: status, widget: select, options: ["pending", "done", "error"], default: pending }
+      - { label: 메모, name: note, widget: text, required: false }
+
+  - name: blog
+    label: 발행된 사주 글
+    folder: src/content/blog
+    create: false
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: 제목, name: title, widget: string }
+      - { label: 슬러그, name: slug, widget: string }
+      - label: 날짜
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+      - { label: 설명, name: description, widget: text }
+      - { label: 커버 이미지, name: cover_image, widget: image, required: false }
+      - { label: 태그, name: tags, widget: list, required: false }
+      - { label: 이름, name: name, widget: string, required: false }
+      - { label: 본문, name: body, widget: markdown }

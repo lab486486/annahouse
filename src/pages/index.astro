@@ -1,0 +1,112 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../site.config";
+import stars from "../data/stars.json";
+import { formatDate, getBlogPosts, postUrl } from "../utils/posts";
+
+const posts = await getBlogPosts();
+const postFaces = posts
+  .filter((post) => post.data.name)
+  .map((post) => ({
+    name: post.data.name as string,
+    href: postUrl(post),
+    image: post.data.cover_image || "",
+    title: post.data.title,
+    description: post.data.description,
+    date: post.data.date,
+  }));
+const fallbackFaces = stars.map((star) => ({
+  name: star.name,
+  href: `/saju/star/?name=${encodeURIComponent(star.name)}`,
+  image: "",
+  title: `${star.name} 사주`,
+  description: "스타와 궁합에서 생일을 맞춰 볼 수 있습니다.",
+  date: undefined as Date | undefined,
+}));
+const faces = postFaces.length ? postFaces : fallbackFaces;
+const ticker = [...faces, ...faces];
+const cards = postFaces.slice(0, 6);
+---
+
+<Layout>
+  <Header />
+  <main id="main">
+    <section class="hero-portal">
+      <div class="hero-portal-inner container">
+        <p class="eyebrow">유명인 사주 검색</p>
+        <h1>{site.name}</h1>
+        <p class="lede">이름만 넣으면 됩니다. 글이 있으면 바로 열고, 없으면 만세력·궁합으로 이어집니다.</p>
+        <form class="search-box" id="home-search" action="/saju/" method="get">
+          <label class="sr-only" for="q">사주 검색</label>
+          <input id="q" name="q" type="search" placeholder="아이유, 손흥민…" autocomplete="off" />
+          <button type="submit">검색</button>
+        </form>
+      </div>
+      <div class="face-marquee" aria-label="인기 사주 대상">
+        <div class="face-track">
+          {
+            ticker.map((face) => (
+              <a class="face" href={face.href} data-name={face.name}>
+                {face.image ? <img src={face.image} alt="" /> : <span>{face.name.slice(0, 1)}</span>}
+                <em>{face.name}</em>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="container home-block">
+      <div class="block-head">
+        <h2>지금 많이 찾는 사주</h2>
+        <a href="/saju/">사주 전체</a>
+      </div>
+      {
+        cards.length ? (
+          <ul class="card-grid">
+            {cards.map((card) => (
+              <li>
+                <a href={card.href}>
+                  <div class="card-thumb">{card.image ? <img src={card.image} alt="" /> : <span>{card.name.slice(0, 1)}</span>}</div>
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                  {card.date && <time datetime={card.date.toISOString()}>{formatDate(card.date)}</time>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul class="card-grid">
+            {fallbackFaces.slice(0, 6).map((card) => (
+              <li>
+                <a href={card.href}>
+                  <div class="card-thumb"><span>{card.name.slice(0, 1)}</span></div>
+                  <h3>{card.name}</h3>
+                  <p>{card.description}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("#home-search");
+  const input = document.querySelector<HTMLInputElement>("#q");
+  const faces = [...document.querySelectorAll<HTMLAnchorElement>(".face")];
+
+  form?.addEventListener("submit", (event) => {
+    const q = (input?.value || "").trim();
+    const hit = faces.find((el) => (el.dataset.name || "") === q);
+    if (hit) {
+      event.preventDefault();
+      window.location.href = hit.href;
+    }
+  });
+</script>

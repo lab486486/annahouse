@@ -1,0 +1,66 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="만세력 보기" description="생년월일로 사주 원국을 봅니다.">
+  <Header />
+  <main id="main" class="page-plain">
+    <div class="container narrow">
+      <p class="eyebrow">사주</p>
+      <h1>만세력 보기</h1>
+      <p class="lede">이름과 생년월일을 넣으면 연·월·일·시주를 보여 줍니다. 절기 경계일에는 월주가 다를 수 있습니다.</p>
+      <form id="manse-form" class="saju-form">
+        <label><span>이름</span><input name="name" required placeholder="이름" /></label>
+        <label><span>생년월일</span><input name="birth_date" type="date" required /></label>
+        <fieldset>
+          <legend>성별</legend>
+          <label class="choice"><input type="radio" name="gender" value="남" checked /> 남</label>
+          <label class="choice"><input type="radio" name="gender" value="여" /> 여</label>
+        </fieldset>
+        <label>
+          <span>출생 시각</span>
+          <select name="birth_hour">
+            {Array.from({ length: 24 }, (_, hour) => (
+              <option value={hour} selected={hour === 12}>{String(hour).padStart(2, "0")}시</option>
+            ))}
+          </select>
+        </label>
+        <button class="primary-btn" type="submit">원국 보기</button>
+      </form>
+      <div id="manse-out" class="result-box" hidden></div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import { calculateSaju, parseYmd } from "../../lib/saju";
+
+  const form = document.querySelector<HTMLFormElement>("#manse-form");
+  const out = document.querySelector<HTMLElement>("#manse-out");
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const ymd = parseYmd(String(data.get("birth_date") || ""));
+    if (!ymd || !out) return;
+    const saju = calculateSaju({
+      ...ymd,
+      hour: Number(data.get("birth_hour") || 12),
+      gender: String(data.get("gender") || "남"),
+    });
+    const p = saju.사주_기둥;
+    const name = String(data.get("name") || "");
+    out.hidden = false;
+    out.innerHTML = `<h2>${name} · ${saju.일주_요약}</h2>
+      <p>${saju.생년월일시} · ${saju.성별} · ${saju.일주_강약} · 용신 ${saju.용신}</p>
+      <ul>
+        <li>연주 ${p.연주.천간}${p.연주.지지} (${p.연주.천간_오행}/${p.연주.지지_오행})</li>
+        <li>월주 ${p.월주.천간}${p.월주.지지} (${p.월주.천간_오행}/${p.월주.지지_오행})</li>
+        <li>일주 ${p.일주.천간}${p.일주.지지} (${p.일주.천간_오행}/${p.일주.지지_오행})</li>
+        <li>시주 ${p.시주.천간}${p.시주.지지} (${p.시주.천간_오행}/${p.시주.지지_오행})</li>
+      </ul>`;
+  });
+</script>

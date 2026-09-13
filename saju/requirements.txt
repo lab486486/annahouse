@@ -1,0 +1,24 @@
+# ─────────────────────────────────────────────
+# 워드프레스 연예인 사주 자동 포스팅 시스템
+# requirements.txt
+# ─────────────────────────────────────────────
+
+# HTTP 요청 (워드프레스 REST API 통신)
+requests>=2.31.0
+
+# DeepSeek API (OpenAI 호환 SDK)
+openai>=1.40.0
+
+# 환경 변수 관리 (.env 파일 지원)
+python-dotenv>=1.0.0
+
+# Python 3.8 서버용 zoneinfo 백포트 (3.9+ 에서는 불필요)
+backports.zoneinfo>=0.2.1; python_version < "3.9"
+
+# ─────────────────────────────────────────────
+# 설치 명령어:
+#   pip install -r requirements.txt
+#
+# 케미클라우드(Python 환경) 설치 시:
+#   pip install -r requirements.txt --user
+# ─────────────────────────────────────────────

@@ -1,0 +1,47 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="애정궁합" description="두 사람의 생년월일로 궁합을 봅니다.">
+  <Header />
+  <main id="main" class="page-plain">
+    <div class="container narrow">
+      <p class="eyebrow">사주</p>
+      <h1>애정궁합</h1>
+      <p class="lede">두 사람의 일간과 오행을 비교합니다. 재미와 참고용입니다.</p>
+      <form id="gh-form" class="saju-form">
+        <label><span>나</span><input name="name_a" required placeholder="이름" /></label>
+        <label><span>내 생년월일</span><input name="date_a" type="date" required /></label>
+        <label><span>상대</span><input name="name_b" required placeholder="이름" /></label>
+        <label><span>상대 생년월일</span><input name="date_b" type="date" required /></label>
+        <button class="primary-btn" type="submit">궁합 보기</button>
+      </form>
+      <div id="gh-out" class="result-box" hidden></div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import { calculateSaju, gunghapScore, parseYmd } from "../../lib/saju";
+
+  document.querySelector("#gh-form")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const data = new FormData(form);
+    const a = parseYmd(String(data.get("date_a") || ""));
+    const b = parseYmd(String(data.get("date_b") || ""));
+    const out = document.querySelector<HTMLElement>("#gh-out");
+    if (!a || !b || !out) return;
+    const left = calculateSaju(a);
+    const right = calculateSaju(b);
+    const result = gunghapScore(left, right);
+    out.hidden = false;
+    out.innerHTML = `<h2>${data.get("name_a")} × ${data.get("name_b")}</h2>
+      <p class="score">${result.score}점 · ${result.label}</p>
+      <p>${left.일주_요약} / ${right.일주_요약}</p>
+      <ul>${result.notes.map((note) => `<li>${note}</li>`).join("")}</ul>`;
+  });
+</script>

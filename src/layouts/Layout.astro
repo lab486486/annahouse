@@ -1,0 +1,54 @@
+---
+import { site } from "../site.config";
+import "../styles/site.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  ogType?: string;
+  ogImage?: string;
+  articlePublishedTime?: string;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  noindex = false,
+  ogType = "website",
+  ogImage,
+  articlePublishedTime,
+} = Astro.props;
+
+const pageTitle = title === site.title ? title : `${title} · ${site.brandName}`;
+const canonical = new URL(Astro.url.pathname, site.baseUrl).href;
+const resolvedOgImage = ogImage || new URL("/og.jpg", site.baseUrl).href;
+---
+
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={`${site.title} RSS`} href="/rss.xml" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content={site.brandName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={resolvedOgImage} />
+    {articlePublishedTime && <meta property="article:publishedTime" content={articlePublishedTime} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#2b2a4a" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+    <slot />
+  </body>
+</html>

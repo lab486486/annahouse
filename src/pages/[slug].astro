@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../site.config";
+import { renderPostHtml } from "../lib/render-post";
+import { absoluteAssetUrl, formatDate, getBlogPosts, postSlug, type Post } from "../utils/posts";
+
+export async function getStaticPaths() {
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({
+    params: { slug: postSlug(post) },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const html = renderPostHtml(post.body || "");
+const dateIso = post.data.date.toISOString().split("T")[0];
+const ogImage = absoluteAssetUrl(post.data.cover_image, site.baseUrl);
+---
+
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+  ogImage={ogImage}
+  articlePublishedTime={post.data.date.toISOString()}
+>
+  <Header />
+  <main id="main" class="post-page">
+    <article class="container post-article">
+      <header class="post-header">
+        <h1>{post.data.title}</h1>
+        <p class="post-meta">
+          <time datetime={dateIso}>{formatDate(post.data.date)}</time>
+        </p>
+      </header>
+      <div class="post-body" set:html={html} />
+    </article>
+  </main>
+  <Footer />
+</Layout>
