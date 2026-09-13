@@ -3,13 +3,20 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { mediaUrl } from "../../site.config";
+import { optimizedMedia } from "../../utils/images";
 import { formatDate, getSajuPosts, postUrl } from "../../utils/posts";
 
 const q = Astro.url.searchParams.get("q")?.trim() || "";
 const posts = await getSajuPosts();
-const filtered = q
-  ? posts.filter((post) => `${post.data.title} ${post.data.name || ""} ${post.data.description}`.includes(q))
-  : posts;
+const filtered = await Promise.all(
+  (q
+    ? posts.filter((post) => `${post.data.title} ${post.data.name || ""} ${post.data.description}`.includes(q))
+    : posts
+  ).map(async (post) => ({
+    ...post,
+    thumb: await optimizedMedia(mediaUrl(post.data.cover_image), 400, 400),
+  })),
+);
 ---
 
 <Layout title="사주" description="유명인 사주 글과 계산기를 한곳에서 봅니다.">
@@ -37,8 +44,8 @@ const filtered = q
               <li>
                 <a href={postUrl(post)}>
                   <div class="card-thumb">
-                    {post.data.cover_image ? (
-                      <img src={mediaUrl(post.data.cover_image)} alt="" />
+                    {post.thumb ? (
+                      <img src={post.thumb} alt="" width="400" height="400" loading="lazy" decoding="async" />
                     ) : (
                       <span>{(post.data.name || post.data.title).slice(0, 1)}</span>
                     )}

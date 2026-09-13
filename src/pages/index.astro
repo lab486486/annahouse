@@ -5,17 +5,22 @@ import Footer from "../components/Footer.astro";
 import { mediaUrl } from "../site.config";
 import popular from "../data/popular.json";
 import stars from "../data/stars.json";
+import { optimizedMedia } from "../utils/images";
 import { celebrityFaces, formatDate, getBlogPosts, popularCards } from "../utils/posts";
 
 const posts = await getBlogPosts();
-const postFaces = celebrityFaces(posts, popular.slugs).map((face) => ({
-  ...face,
-  image: mediaUrl(face.image) || "",
-}));
-const popularFaces = popularCards(posts, popular.slugs, 6).map((face) => ({
-  ...face,
-  image: mediaUrl(face.image) || "",
-}));
+const postFaces = await Promise.all(
+  celebrityFaces(posts, popular.slugs, 16).map(async (face) => ({
+    ...face,
+    image: (await optimizedMedia(mediaUrl(face.image), 168)) || "",
+  })),
+);
+const popularFaces = await Promise.all(
+  popularCards(posts, popular.slugs, 6).map(async (face) => ({
+    ...face,
+    image: (await optimizedMedia(mediaUrl(face.image), 400, 520)) || "",
+  })),
+);
 const fallbackFaces = stars.map((star) => ({
   name: star.name,
   href: `/saju/star/?name=${encodeURIComponent(star.name)}`,
@@ -27,7 +32,7 @@ const fallbackFaces = stars.map((star) => ({
 const faces = postFaces.length ? postFaces : fallbackFaces;
 const ticker = [...faces, ...faces];
 const cards = popularFaces.length ? popularFaces : postFaces.slice(0, 6);
-const marqueeSeconds = Math.max(42, faces.length * 1.6);
+const marqueeSeconds = Math.max(28, faces.length * 1.8);
 const starsTwinkle = [
   [8, 12, 1.6, 0],
   [14, 22, 1.1, 0.8],
@@ -47,9 +52,21 @@ const starsTwinkle = [
 ] as const;
 ---
 
-<Layout>
+<Layout ads={false} preloadImage="/images/hero-night-800.webp">
   <main id="main">
     <section class="hero-portal">
+      <img
+        class="hero-photo"
+        src="/images/hero-night-800.webp"
+        srcset="/images/hero-night-800.webp 800w, /images/hero-night.webp 1280w"
+        sizes="100vw"
+        width="1280"
+        height="720"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="hero-veil" aria-hidden="true"></div>
       <div class="hero-sky" aria-hidden="true">
         {starsTwinkle.map(([left, top, size, delay]) => (
           <span
@@ -71,9 +88,20 @@ const starsTwinkle = [
       <div class="face-marquee" aria-label="인기 사주 대상">
         <div class="face-track" style={`animation-duration: ${marqueeSeconds}s`}>
           {
-            ticker.map((face) => (
+            ticker.map((face, index) => (
               <a class="face" href={face.href} data-name={face.name}>
-                {face.image ? <img src={face.image} alt="" /> : <span>{face.name.slice(0, 1)}</span>}
+                {face.image ? (
+                  <img
+                    src={face.image}
+                    alt=""
+                    width="168"
+                    height="168"
+                    loading={index < 6 ? "eager" : "lazy"}
+                    decoding="async"
+                  />
+                ) : (
+                  <span>{face.name.slice(0, 1)}</span>
+                )}
                 <em>{face.name}</em>
               </a>
             ))
@@ -90,10 +118,23 @@ const starsTwinkle = [
       {
         cards.length ? (
           <ul class="card-grid card-grid-featured">
-            {cards.map((card) => (
+            {cards.map((card, index) => (
               <li>
                 <a href={card.href}>
-                  <div class="card-thumb">{card.image ? <img src={card.image} alt="" /> : <span>{card.name.slice(0, 1)}</span>}</div>
+                  <div class="card-thumb">
+                    {card.image ? (
+                      <img
+                        src={card.image}
+                        alt=""
+                        width="400"
+                        height="520"
+                        loading={index < 2 ? "eager" : "lazy"}
+                        decoding="async"
+                      />
+                    ) : (
+                      <span>{card.name.slice(0, 1)}</span>
+                    )}
+                  </div>
                   <h3>{card.title}</h3>
                   <p>{card.description}</p>
                   {card.date && <time datetime={card.date.toISOString()}>{formatDate(card.date)}</time>}

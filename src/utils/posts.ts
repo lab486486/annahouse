@@ -108,7 +108,7 @@ function toFace(post: Post): Face {
   };
 }
 
-export function celebrityFaces(posts: Post[], popularSlugs: string[] = []): Face[] {
+export function celebrityFaces(posts: Post[], popularSlugs: string[] = [], limit = 0): Face[] {
   const bySlug = new Map(posts.map((post) => [postSlug(post), post]));
   const seen = new Set<string>();
   const faces: Face[] = [];
@@ -127,7 +127,7 @@ export function celebrityFaces(posts: Post[], popularSlugs: string[] = []): Face
     seen.add(name);
     faces.push(toFace(post));
   }
-  return faces;
+  return limit > 0 ? faces.slice(0, limit) : faces;
 }
 
 export function popularCards(posts: Post[], popularSlugs: string[], limit = 6): Face[] {

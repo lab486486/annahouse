@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { mediaUrl } from "../site.config";
 import { renderPostHtml } from "../lib/render-post";
 import legacyRedirects from "../data/legacy-redirects.json";
+import { optimizedMedia } from "../utils/images";
 import { formatDate, getBlogPosts, getSajuPosts, isSajuPost, postSlug, postUrl, relatedSajuPosts, type Post } from "../utils/posts";
 
 export async function getStaticPaths() {
@@ -35,7 +36,14 @@ if (!post) {
 const html = renderPostHtml(post.body || "");
 const dateIso = post.data.date.toISOString().split("T")[0];
 const ogImage = mediaUrl(post.data.cover_image);
-const related = isSajuPost(post) ? relatedSajuPosts(post, await getSajuPosts(), 3) : [];
+const related = isSajuPost(post)
+  ? await Promise.all(
+      relatedSajuPosts(post, await getSajuPosts(), 3).map(async (item) => ({
+        ...item,
+        thumb: await optimizedMedia(mediaUrl(item.data.cover_image), 400, 400),
+      })),
+    )
+  : [];
 ---
 
 <Layout
@@ -66,8 +74,8 @@ const related = isSajuPost(post) ? relatedSajuPosts(post, await getSajuPosts(), 
                   <li>
                     <a href={postUrl(item)}>
                       <div class="card-thumb">
-                        {item.data.cover_image ? (
-                          <img src={mediaUrl(item.data.cover_image)} alt="" />
+                        {item.thumb ? (
+                          <img src={item.thumb} alt="" width="400" height="400" loading="lazy" decoding="async" />
                         ) : (
                           <span>{(item.data.name || item.data.title).slice(0, 1)}</span>
                         )}
