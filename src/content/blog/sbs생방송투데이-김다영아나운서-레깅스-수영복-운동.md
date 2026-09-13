@@ -9,21 +9,20 @@ tags:
 cover_image: "/wp-content/uploads/tistory/214/img.jpg"
 ---
 <h2 id="SBS생방송투데이_김다영아나운서_레깅스_수영복_운동패션" data-ke-size="size26">SBS생방송투데이 김다영아나운서 레깅스 수영복 운동패션</h2>
-<div class="photo-grid">
-  <img src="/wp-content/uploads/tistory/214/img.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/214/img_1.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/214/img_2.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/214/img_3.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/214/img_4.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/214/img_5.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/214/img_6.jpg" alt="" />
-</div>
 
 <p data-ke-size="size16">2021년 SBS 경력직 공채 아나운서로 선발된 김다영 아나운서에 대한 관심이 뜨겁습니다.</p>
 <p data-ke-size="size16">과거 부산MBC에서 두각을 나타낸 그녀이기에 SBS에서 보여줄 진행 능력과 이미지가 너무나 기대가 되는데요!</p>
 <p data-ke-size="size16">아래에서 김다영 아나운서의 SBS생방송투데이 방송 고화질사진과 레깅스 수영복 운동패션에 대해 살펴보겠습니다.</p>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/214/img.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/214/img_1.jpg" alt="" />
+</div>
 
 <h3 id="1._김다영_아나운서_SBS생방송투데이_방송_고화질사진_" data-ke-size="size23">1. 김다영 아나운서 SBS생방송투데이 방송 고화질사진</h3>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/214/img_4.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/214/img_5.jpg" alt="" />
+</div>
 <p data-ke-size="size16">이번달부터 본격적으로 윤현진 아나운서의 자리를 대신해 투입된 김다영 아나운서는 과거 지역케이블 방송사에서 리포터와 MC를 통해 다져진 방송능력을 어김없이 보여줬는데요!</p>
 
 
@@ -40,7 +39,13 @@ cover_image: "/wp-content/uploads/tistory/214/img.jpg"
 <p data-ke-size="size16">특히 김다영 아나운서의 정장 패션은 타의추종을 불허할 정도로 매력적인데요! 남성들의 마음을 흔들정도로 매끈한 각선미와 볼륨감 있는 몸매는 그녀의 가치를 한껏 끌어올려주는 듯 합니다.</p>
 
 
+<p class="photo-single"><img src="/wp-content/uploads/tistory/214/img_6.jpg" alt="" /></p>
+
 <h3 id="2._레깅스_수영복_운동패션" data-ke-size="size23">2. 레깅스 수영복 운동패션</h3>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/214/img_2.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/214/img_3.jpg" alt="" />
+</div>
 <p data-ke-size="size16">김다영 아나운서의 인스타에 들어가보면 운동을 좋아한다는 것을 쉽게 알수 있습니다. 운동을 하기 전 레깅스를 착용하고 전신거울에서 셀카를 촬영한 사진들이 눈에 띄는데요~</p>
 
 <p data-ke-size="size16">아마도 운동 전, 후 자신의 몸매를 체크하기 위해서 촬영한 것 같은데 운동을 안해도 될 정도로 이미 탄탄한 몸매를 가지고 있는 김다영 아나운서입니다.</p>

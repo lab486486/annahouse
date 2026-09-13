@@ -16,35 +16,18 @@ SBS Golf 유튜브 채널에서 큰 인기를 끌었던 '골프에 반하다' �
 
 <img class="alignnone size-medium wp-image-867" src="/wp-content/uploads/2026/02/R1280x0_112-300x156.jpg" alt="골프에 반하다" width="300" height="156" />
 <h2>골프에 반하다 1회 : 파인비치CC 출연진 및 코스</h2>
+
 <div class="photo-grid">
   <img src="/wp-content/uploads/tistory/139/img.jpg" alt="" />
   <img src="/wp-content/uploads/tistory/139/20211108_225145_0000.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_1.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_2.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_3.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_4.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_5.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_6.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_7.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_8.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_9.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_10.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_11.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_12.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_13.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_14.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_15.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_16.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_17.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_18.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_19.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_20.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_21.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_22.png" alt="" />
-  <img src="/wp-content/uploads/tistory/139/img_23.png" alt="" />
 </div>
 
 <h3>힐링을 선사한 미녀 프로 3인방</h3>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_3.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_4.png" alt="" />
+</div>
+
 시즌 1의 포문을 연 출연진은 레슨 프로로도 왕성하게 활동 중인 강다나, 지승은, 박진이 프로였어요.
 
 <img class="alignnone size-medium wp-image-860" src="/wp-content/uploads/2026/02/R1280x0_105-300x153.jpg" alt="골프에 반하다" width="300" height="153" />
@@ -56,7 +39,25 @@ SBS Golf 유튜브 채널에서 큰 인기를 끌었던 '골프에 반하다' �
 특히 별도의 자막이나 요란한 효과음 없이 들리는 맑은 타구음 덕분에 골프에 입문하는 분들도 거부감 없이 즐기기 좋습니다.
 
 <img class="alignnone size-medium wp-image-862" src="/wp-content/uploads/2026/02/R1280x0_107-300x153.jpg" alt="골프에 반하다" width="300" height="153" />
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_7.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_8.png" alt="" />
+</div>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_13.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_14.png" alt="" />
+</div>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_19.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_20.png" alt="" />
+</div>
+
 <h3>아시아의 지중해 해남 파인비치CC</h3>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_5.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_6.png" alt="" />
+</div>
+
 전라남도 해남에 위치한 파인비치 골프링크스는 시원한 바다를 조망하며 샷을 날릴 수 있는 국내 최고의 오션뷰 골프장 중 하나입니다.
 
 <img class="alignnone size-medium wp-image-868" src="/wp-content/uploads/2026/02/R1280x0_113-300x162.jpg" alt="골프에 반하다" width="300" height="162" />
@@ -66,7 +67,25 @@ SBS Golf 유튜브 채널에서 큰 인기를 끌었던 '골프에 반하다' �
 파인, 비치, 오시아노 세 가지 코스로 구성되어 있으며 각 코스마다 바다와 나무, 돌이 어우러진 독특한 매력을 지니고 있답니다.
 
 <img class="alignnone size-medium wp-image-872" src="/wp-content/uploads/2026/02/R1280x0_117-300x144.jpg" alt="골프에 반하다" width="300" height="144" />
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_9.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_10.png" alt="" />
+</div>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_15.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_16.png" alt="" />
+</div>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_21.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_22.png" alt="" />
+</div>
+
 <h3>2026년 최신 이용 요금 및 예약 정보</h3>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_1.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_2.png" alt="" />
+</div>
+
 현재 18홀 기준 그린피는 시즌과 요일에 따라 차이가 있지만, 패키지 이용 시 평일 기준 약 30만 원대 중반부터 시작하는 것으로 확인됩니다.
 
 캐디피는 팀당 15만 원 수준이며, 카트비는 전동 카트 이용 시 1인당 3만 원 정도의 요금이 발생해요.
@@ -79,4 +98,13 @@ SBS Golf 유튜브 채널에서 큰 인기를 끌었던 '골프에 반하다' �
 
 서울에서 출발하시는 분들은 양재 시민의 숲 인근 매헌윤봉길의사기념관 주차장에서 운행하는 리무진 셔틀버스를 이용하시면 편리하게 이동하실 수 있습니다.
 
-목포역에서 무료 픽업 서비스도 제공하고 있으니 대중교통을 이용하시는 분들은 참고하시면 좋겠네요.
+목포역에서 무료 픽업 서비스도 제공하고 있으니 대중교통을 이용하시는 분들은 참고하시면 좋겠네요.<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_11.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_12.png" alt="" />
+</div>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img_17.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_18.png" alt="" />
+</div>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/139/img_23.png" alt="" /></p>
+

@@ -10,25 +10,25 @@ cover_image: "/wp-content/uploads/tistory/257/img.webp"
 ---
 <div class="tt_article_useless_p_margin contents_style">
 <h2 id="jtbc골프_실시간_생방송_보는방법(ft.라이브레슨70)" data-ke-size="size26">jtbc골프 실시간 생방송 보는방법(ft.라이브레슨70)</h2>
-<div class="photo-grid">
-  <img src="/wp-content/uploads/tistory/257/img.webp" alt="" />
-  <img src="/wp-content/uploads/tistory/257/img_1.webp" alt="" />
-  <img src="/wp-content/uploads/tistory/257/img_2.webp" alt="" />
-  <img src="/wp-content/uploads/tistory/257/img_3.webp" alt="" />
-  <img src="/wp-content/uploads/tistory/257/img_4.webp" alt="" />
-</div>
 
 <p data-ke-size="size16">골프 인구가 늘어나면서 jtbc골프 실시간 생방송을 보려는 분들이 늘어나고 있습니다.</p>
 <p data-ke-size="size16">그중에서 라이브레슨 70의 인기가 상당히 높은데요! 미남, 미녀 프로골퍼를 비롯해 골린이들의 가려운 부분을 속 시원히 알려주기 때문인 것 같습니다.</p>
 <p data-ke-size="size16">아래에서 jtbc골프 실시간 생방송 보는 방법에 대해 알아보도록 하겠습니다.</p>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/257/img.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/257/img_1.webp" alt="" />
+</div>
 
 <h3 id="JTBC골프_대표_프로그램_라이브레슨_70" data-ke-size="size23">JTBC골프 대표 프로그램 라이브레슨 70</h3>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/257/img_4.webp" alt="" /></p>
 <p data-ke-size="size16">JTBC골프 채널에서 대회를 제외하고 가장 높은 시청률을 보이는 대표 프로그램이 바로 라이브레슨 70입니다.</p>
 <p data-ke-size="size16">프로 골퍼들과 함께하는 짧지만 강한 골프 레슨이라는 슬로건 아래 미남, 미녀 프로골퍼들이 총출동하는데요!</p>
 <p data-ke-size="size16">안소현, 박봄이, 류가형, 고경민 프로 등 미녀 프로골퍼를 비롯해서 신준, 이현, 송경서, 정지철 미남 프로골퍼 등 평소 보고 싶었던 골퍼들을 단독 레슨으로 만나볼 수 있게 되면서 JTBC골프의 시청률 효자 노릇을 톡톡히 해내고 있습니다.</p>
 <p data-ke-size="size16">강소연, 이나연 진행의 라이브레슨 70은 매주 화요일과 수요일 오후 09:20에 JTBC Golf 채널을 통해 방송되고 있습니다.</p>
 
+
 <h3 id="JTBC골프_실시간_생방송_보는_방법" data-ke-size="size23">JTBC골프 실시간 생방송 보는 방법</h3>
+
 <p data-ke-size="size16">JTBC골프를 실시간으로 보는 방법은 JTBC골프 홈페이지를 이용하거나 모바일 앱을 다운로드하면 됩니다.</p>
 <p data-ke-size="size16">홈페이지를 이용할 경우 접근은 편하지만 접속할 때마다 로그인을 해야 하고, 모바일은 자동로그인이 지원되어 빠르게 접속이 가능합니다.</p>
 
@@ -114,7 +114,12 @@ JTBC골프 쇼핑 5% 즉시할인</td>
 <p data-ke-size="size16">현재 가지고 계신 스마트폰의 운영체제 종류에 따라 다운로드 가능한 스토어가 다르기 때문에 잘 확인하시고 링크를 누르면 됩니다.</p>
 <p data-ke-size="size16">앱 설치 후에는 TV 메뉴로 접속해서 홈페이지와 마찬가지로 광고시청 후 실시간 방송 시청이 가능합니다.</p>
 
+
 <h3 id="JTBC골프_지역별_채널번호_안내" data-ke-size="size23">JTBC골프 지역별 채널번호 안내</h3>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/257/img_2.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/257/img_3.webp" alt="" />
+</div>
 <p data-ke-size="size16">국가대표 골프전문채널인 JTBC골프 채널은 OTT서비스 제공업체에 따라 조금씩 채널번호가 다른데요!</p>
 <p data-ke-size="size16">공중파 방송처럼 같은 채널 번호로 제공된다면 보다 많은 분들이 JTBC골프를 보는데 편하지 않을까라는 생각이 들어 아쉬움이 컸습니다.</p>
 
