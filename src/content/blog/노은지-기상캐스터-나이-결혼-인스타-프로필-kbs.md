@@ -6,7 +6,7 @@ description: "노은지 KBS 기상캐스터 관련 정보와 최신 근황을 �
 legacy: true
 tags:
   - "방송 패션"
-cover_image: "/wp-content/uploads/2026/02/R1280x0_119-300x300.jpg"
+cover_image: "/wp-content/uploads/tistory/260/img.webp"
 ---
 노은지 KBS 기상캐스터 관련 정보와 최신 근황을 궁금해하시는 분들을 위해 오늘 상세한 내용을 알려드리겠습니다.
 
@@ -16,6 +16,18 @@ KBS 내에서도 미녀 기상캐스터로 손꼽히는 그녀는 여름철 각�
 
 <img class="alignnone size-medium wp-image-877" src="/wp-content/uploads/2026/02/R1280x0_119-300x300.jpg" alt="노은지 기상캐스터 대기실" width="300" height="300" />
 <h2>노은지 KBS 기상캐스터 프로필 및 방송 경력</h2>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/260/img.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/260/img_1.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/260/img_2.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/260/img_3.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/260/img_4.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/260/img_5.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/260/img_6.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/260/img_7.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/260/img_8.webp" alt="" />
+</div>
+
 <h3>15년 차 베테랑의 노련한 진행</h3>
 1984년생인 그녀는 2026년 기준 현재 42세이며, 2009년 KBS 기상캐스터 공채로 입사하여 올해로 벌써 17년 차를 맞이한 베테랑입니다.
 

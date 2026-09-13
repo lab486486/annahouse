@@ -9,5 +9,10 @@ Saju.zip
 saju/tmp/
 public/wp-content/
 scripts/.wxr-images.json
+scripts/.tistory-images.json
+Achive/
+Achive.zip
+Archive/
+Archive.zip
 __pycache__/
 *.pyc

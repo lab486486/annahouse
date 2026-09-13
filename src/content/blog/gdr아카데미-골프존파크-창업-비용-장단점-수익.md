@@ -6,8 +6,11 @@ description: "GDR아카데미 골프존파크 창업 비용 장단점 답답한 
 legacy: true
 tags:
   - "잡학사전"
+cover_image: "/wp-content/uploads/tistory/242/골프존파크_창업06.webp"
 ---
 <h2 id="GDR아카데미_골프존파크_창업_비용_장단점" data-ke-size="size26">GDR아카데미 골프존파크 창업 비용 장단점</h2>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/242/골프존파크_창업06.webp" alt="" /></p>
+
 <p data-ke-size="size16">답답한 삶 속에서 골프의 재미를 맛보면서 골프 인구가 급속도로 증가하면서 GDR아카데미 골프존파크 창업에 대한 관심이 높아지고 있습니다.</p>
 <p data-ke-size="size16">이러한 가운데 독보적인 점유율을 가지고 있는 GDR아카데미 골프존파크 창업에 대해 관심가지는 분들도 늘어나고 있는데요!</p>
 <p data-ke-size="size16">아래에서 GDR아카데미 골프존파크 창업 비용과 장단점, 수익 순으로 알아보도록 하겠습니다.</p>
@@ -17,7 +20,7 @@ tags:
 <p data-ke-size="size16">10년 전만 하더라도 국내 시장의 90%를 점유했던 골프존파크였지만 카카오톡, 카카오스토리 등의 친숙한 프렌즈 캐릭터를 앞세워 공격적인 마케팅을 내세우는 카카오VX에 조금씩 흔들리는 모습을 보이고 있습니다.</p>
 <p data-ke-size="size16">그럼에도 불구하고 스크린골프하면 떠오르는 브랜드는 역시 골프존파크인데요! 2016년 정식 가맹사업을 시작으로 2017년에만 약 500개의 신규 가맹점이 개설되었고, 이후 전국 가맹점 수 1,000개를 돌파했고 2020년 말 기준 1,423개의 가맹점을 보유하고 있습니다.</p>
 <p data-ke-size="size16">일반 스크린골프장의 경우 코로나 상황속에서 폐업하는 경우도 많았지만, 어려움 속에서도 굳건한 모습을 보였던 것은 골프존파크 스크린골프였습니다. 꼼꼼한 방역과 최상의 서비스로 코로나 시대에 오히려 매출이 증가하는 모습도 보였기에 앞으로가 기대됩니다.</p>
-<p data-ke-size="size16"><a title="골프존파크 가맹점창업" href="https://company.golfzon.com/GFZ/StartUp/GDRStartups.aspx" target=""><img class="observing loaded aligncenter" src="https://blog.kakaocdn.net/dna/mNXCH/btrCrAkSCpz/AAAAAAAAAAAAAAAAAAAAAAO3z13oOdeqIsZTA9N4hHxJTWoXT5RrlXK7X85fjGdg/img.webp?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=FPI4ETTUr9M%2B5Fpm5qbTk591i90%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FmNXCH%2FbtrCrAkSCpz%2FAAAAAAAAAAAAAAAAAAAAAAO3z13oOdeqIsZTA9N4hHxJTWoXT5RrlXK7X85fjGdg%2Fimg.webp%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DFPI4ETTUr9M%252B5Fpm5qbTk591i90%253D" width="250" height="250" data-filename="골프존파크_창업06.webp" data-origin-width="722" data-origin-height="352" /></a></p>
+<p data-ke-size="size16"><a title="골프존파크 가맹점창업" href="https://company.golfzon.com/GFZ/StartUp/GDRStartups.aspx" target=""></a></p>
 
 <h3 id="2._골프존파크_창업비용" data-ke-size="size23">2. 골프존파크 창업비용</h3>
 <p data-ke-size="size16">업계 1위의 스크린골프장을 운영하려면 과연 얼마가 필요할까요? 결론부터 말씀드리자면 100평 기준 약 5억~5억5천만원 선으로 생각하시면 되겠습니다. 참고로 여기에는 임대료, 냉난방기, 소방시설, 인터넷, 화장실 공사 등은 제외되어 있습니다.</p>
@@ -49,9 +52,7 @@ tags:
 <p data-ke-size="size16">골프 용품은 5개 룸을 기준으로 볼, 클럽, 장갑, 골프화 등으로 구성되어 있습니다. 최근 물가상승 영향으로 장비 및 인테리어 비용이 상승될 수도 있으니 창업비용 도표는 참고용으로만 확인하시면 되겠습니다.</p>
 <p data-ke-size="size16">창업비용에서 별도금액으로 제외된 사항으로는 냉난방기, 공조시설, 소방시설, 정기증설, 철거, 인터넷, 화장실 공사, 기타 전자제품 등으로 4억 8천만원+5천만원 정도로 계산하시면 되겠습니다.</p>
 
-<figure data-ke-type="video" data-ke-style="alignCenter" data-video-host="youtube" data-video-url="https://www.youtube.com/watch?v=OvuG0CoyS4M" data-video-thumbnail="https://blog.kakaocdn.net/dna/UnLy8/hyOsn52UNH/AAAAAAAAAAAAAAAAAAAAAKXuPeZcEw3x0VvKGDXsy5AgBVPD3QKFaLSyXBnkra_I/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=Qj9zmoGLkRfzlIA9U%2BOQFRR8nEw%3D" data-video-width="860" data-video-height="484" data-video-origin-width="860" data-video-origin-height="484" data-ke-mobilestyle="widthContent">
 <div class="video-wrap"><iframe title="entryIframe1" src="https://www.youtube.com/embed/OvuG0CoyS4M" width="860" height="484" frameborder="" allowfullscreen="allowfullscreen" data-mce-fragment="1"></iframe></div>
-<figcaption></figcaption></figure>
 <h3 id="3._골프존파크_룸(Room)당_상세금액" data-ke-size="size23">3. 골프존파크 룸(Room)당 상세금액</h3>
 <p data-ke-size="size16">100평 기준으로 보통 5개의 룸이 통상 가능하며, 1개 룸에 TWOVISION PLUS 장비 1대가 들어갑니다. 골프존 TWOVISION PLUS장비 1대당 가격은 약 6천2백만원으로 5개 룸에 설치될 경우 약 3억원의 비용이 발생합니다.</p>
 

@@ -6,8 +6,20 @@ description: "TV와 모니터 화면 깨끗하게 촬영하는법 가끔 업무�
 legacy: true
 tags:
   - "잡학사전"
+cover_image: "/wp-content/uploads/tistory/48/img.jpg"
 ---
 <h2 id="TV와_모니터_화면_깨끗하게_촬영하는법" data-ke-size="size26">TV와 모니터 화면 깨끗하게 촬영하는법</h2>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/48/img.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/48/20200207_125457_0000.png" alt="" />
+  <img src="/wp-content/uploads/tistory/48/img_1.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/48/20200207_144539.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/48/20200207_144557.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/48/20200207_144616.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/48/20200207_144637.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/48/copyright.png" alt="" />
+</div>
+
 <p data-ke-size="size16">가끔 업무를 하다보면 모니터화면을 스마트폰으로 찍어서 카톡으로 보낼때가 있는데 그럴때마다, 사진촬영하고 오려내서 밝은 필터로 바꾼뒤에 보내는데 귀찮은일이 아닐수 없습니다.</p>
 <p data-ke-size="size16">이러한 이글거리는 것은 무엇일까요? 도대체 모니터나 TV화면을 촬영하면 이글이글거리는 화면이 안나오게 촬영할 순 없을까요? 먼저 이글거림에 대해 알아봅시다.</p>
 
@@ -24,7 +36,7 @@ tags:
 <h4 data-ke-size="size20"> 일반적인 스마트폰으로 촬영할 경우</h4>
 <p data-ke-size="size16"><!-- Ÿ��Ʋ ���� --><!-- ������1 ���� --><!-- ������1 ���� --></p>
 
-<figure class="imageblock alignCenter" data-ke-mobilestyle="widthContent" data-origin-width="3024" data-origin-height="1835"><span data-url="https://blog.kakaocdn.net/dna/9iPjS/btqBQnxSaZc/AAAAAAAAAAAAAAAAAAAAAOE2Ul0NCi8dfJYcjHUq1oBFOsicqoQ7ysboOmQPbPi7/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=tIYtXrOotNrlVPP7dutyk1iFlVw%3D" data-phocus="https://blog.kakaocdn.net/dna/9iPjS/btqBQnxSaZc/AAAAAAAAAAAAAAAAAAAAAOE2Ul0NCi8dfJYcjHUq1oBFOsicqoQ7ysboOmQPbPi7/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=tIYtXrOotNrlVPP7dutyk1iFlVw%3D" data-alt="▲ 사진에 물결무늬가 잔뜩 있다"><img class="observing loaded aligncenter" src="https://blog.kakaocdn.net/dna/9iPjS/btqBQnxSaZc/AAAAAAAAAAAAAAAAAAAAAOE2Ul0NCi8dfJYcjHUq1oBFOsicqoQ7ysboOmQPbPi7/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=tIYtXrOotNrlVPP7dutyk1iFlVw%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F9iPjS%2FbtqBQnxSaZc%2FAAAAAAAAAAAAAAAAAAAAAOE2Ul0NCi8dfJYcjHUq1oBFOsicqoQ7ysboOmQPbPi7%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DtIYtXrOotNrlVPP7dutyk1iFlVw%253D" width="720" height="436" data-origin-width="3024" data-origin-height="1835" data-phocus-index="1" /></span></figure>
+
 <figure data-ke-mobilestyle="widthContent" data-origin-width="3024" data-origin-height="1835"></figure>
 <p style="text-align: center;">▲ 사진에 물결무늬가 잔뜩 있다</p>
 
@@ -54,16 +66,16 @@ tags:
 </div>
 </div>
 <h4 class="tt-youtube-plugin" data-ke-size="size20"> 스마트폰 카메라 설정값 변경(안드로이드 기준)</h4>
-<figure class="imageblock alignCenter" data-ke-mobilestyle="widthContent" data-filename="20200207_144539.jpg" data-origin-width="1080" data-origin-height="752"><span data-url="https://blog.kakaocdn.net/dna/bqzNc3/btqBL7xfjR9/AAAAAAAAAAAAAAAAAAAAAEQOvr_c-GeVvTz2gBh-07V56HBQuoV9vS4mgrbjRBrJ/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=bnb1tlghyuuWUFnH72WnQaDch5k%3D" data-phocus="https://blog.kakaocdn.net/dna/bqzNc3/btqBL7xfjR9/AAAAAAAAAAAAAAAAAAAAAEQOvr_c-GeVvTz2gBh-07V56HBQuoV9vS4mgrbjRBrJ/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=bnb1tlghyuuWUFnH72WnQaDch5k%3D" data-alt="▲ 카메라 어플을 켜고 난뒤 더보기를 눌러준다"><img class="observing loaded aligncenter" src="https://blog.kakaocdn.net/dna/bqzNc3/btqBL7xfjR9/AAAAAAAAAAAAAAAAAAAAAEQOvr_c-GeVvTz2gBh-07V56HBQuoV9vS4mgrbjRBrJ/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=bnb1tlghyuuWUFnH72WnQaDch5k%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbqzNc3%2FbtqBL7xfjR9%2FAAAAAAAAAAAAAAAAAAAAAEQOvr_c-GeVvTz2gBh-07V56HBQuoV9vS4mgrbjRBrJ%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3Dbnb1tlghyuuWUFnH72WnQaDch5k%253D" width="522" height="363" data-filename="20200207_144539.jpg" data-origin-width="1080" data-origin-height="752" data-phocus-index="3" /></span></figure>
+
 <p style="text-align: center;">▲ 카메라 어플을 켜고 난뒤 더보기를 눌러준다</p>
 
-<figure class="imageblock alignCenter" data-ke-mobilestyle="widthContent" data-filename="20200207_144557.jpg" data-origin-width="1080" data-origin-height="1004"><span data-url="https://blog.kakaocdn.net/dna/bzAddv/btqBOCP6mAt/AAAAAAAAAAAAAAAAAAAAAGktGnk1Ce_yrqj_Wi9vPwu6yIbhxFKUk3vraRF7T51U/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=GbO%2FhV1QA3GRmwCJ6xVrydjJNak%3D" data-phocus="https://blog.kakaocdn.net/dna/bzAddv/btqBOCP6mAt/AAAAAAAAAAAAAAAAAAAAAGktGnk1Ce_yrqj_Wi9vPwu6yIbhxFKUk3vraRF7T51U/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=GbO%2FhV1QA3GRmwCJ6xVrydjJNak%3D" data-alt="▲ 수동모드인 프로를 눌러준다"><img class="observing loaded aligncenter" src="https://blog.kakaocdn.net/dna/bzAddv/btqBOCP6mAt/AAAAAAAAAAAAAAAAAAAAAGktGnk1Ce_yrqj_Wi9vPwu6yIbhxFKUk3vraRF7T51U/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=GbO%2FhV1QA3GRmwCJ6xVrydjJNak%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbzAddv%2FbtqBOCP6mAt%2FAAAAAAAAAAAAAAAAAAAAAGktGnk1Ce_yrqj_Wi9vPwu6yIbhxFKUk3vraRF7T51U%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DGbO%252FhV1QA3GRmwCJ6xVrydjJNak%253D" width="462" height="429" data-filename="20200207_144557.jpg" data-origin-width="1080" data-origin-height="1004" data-phocus-index="4" /></span></figure>
+
 <p style="text-align: center;">▲ 수동모드인 프로를 눌러준다</p>
 
-<figure class="imageblock alignCenter" data-ke-mobilestyle="widthContent" data-filename="20200207_144616.jpg" data-origin-width="1080" data-origin-height="884"><span data-url="https://blog.kakaocdn.net/dna/cd32rS/btqBQndBNRS/AAAAAAAAAAAAAAAAAAAAAFMM2imzsqRY-KnZ-rPhZO_98yDPv2A2jzBY990dwtrz/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=EMoDnuZmZ3QfmZ5r94XgPVAFiA0%3D" data-phocus="https://blog.kakaocdn.net/dna/cd32rS/btqBQndBNRS/AAAAAAAAAAAAAAAAAAAAAFMM2imzsqRY-KnZ-rPhZO_98yDPv2A2jzBY990dwtrz/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=EMoDnuZmZ3QfmZ5r94XgPVAFiA0%3D" data-alt="▲ 감도(ISO)를 1600으로 바꿔준다(경우에 따라 800)"><img class="observing loaded aligncenter" src="https://blog.kakaocdn.net/dna/cd32rS/btqBQndBNRS/AAAAAAAAAAAAAAAAAAAAAFMM2imzsqRY-KnZ-rPhZO_98yDPv2A2jzBY990dwtrz/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=EMoDnuZmZ3QfmZ5r94XgPVAFiA0%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fcd32rS%2FbtqBQndBNRS%2FAAAAAAAAAAAAAAAAAAAAAFMM2imzsqRY-KnZ-rPhZO_98yDPv2A2jzBY990dwtrz%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DEMoDnuZmZ3QfmZ5r94XgPVAFiA0%253D" width="433" height="355" data-filename="20200207_144616.jpg" data-origin-width="1080" data-origin-height="884" data-phocus-index="5" /></span></figure>
+
 <p style="text-align: center;">▲ 감도(ISO)를 1600으로 바꿔준다(경우에 따라 800)</p>
 
-<figure class="imageblock alignCenter" data-ke-mobilestyle="widthContent" data-filename="20200207_144637.jpg" data-origin-width="1080" data-origin-height="870"><span data-url="https://blog.kakaocdn.net/dna/JrcYM/btqBNL7RMKU/AAAAAAAAAAAAAAAAAAAAAL_tulQeo-fDBSKZYp2j3Uxp09OQQ7AadMet0Sn0GsJi/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=qmuZUnT1Y2pz2t5%2FJIcYltjIYFw%3D" data-phocus="https://blog.kakaocdn.net/dna/JrcYM/btqBNL7RMKU/AAAAAAAAAAAAAAAAAAAAAL_tulQeo-fDBSKZYp2j3Uxp09OQQ7AadMet0Sn0GsJi/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=qmuZUnT1Y2pz2t5%2FJIcYltjIYFw%3D" data-alt="▲ 셔터스피드를 1/1000으로 바꿔준다"><img class="observing loaded aligncenter" src="https://blog.kakaocdn.net/dna/JrcYM/btqBNL7RMKU/AAAAAAAAAAAAAAAAAAAAAL_tulQeo-fDBSKZYp2j3Uxp09OQQ7AadMet0Sn0GsJi/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=qmuZUnT1Y2pz2t5%2FJIcYltjIYFw%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FJrcYM%2FbtqBNL7RMKU%2FAAAAAAAAAAAAAAAAAAAAAL_tulQeo-fDBSKZYp2j3Uxp09OQQ7AadMet0Sn0GsJi%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DqmuZUnT1Y2pz2t5%252FJIcYltjIYFw%253D" width="448" height="360" data-filename="20200207_144637.jpg" data-origin-width="1080" data-origin-height="870" data-phocus-index="6" /></span></figure>
+
 <p style="text-align: center;">▲ 셔터스피드를 1/1000으로 바꿔준다</p>
 <p data-ke-size="size16">사진은 4장이지만, 실제로 바꾸는 설정값은 감도(ISO)와 셔터스피드 2개뿐입니다.</p>
 <p data-ke-size="size16">이렇게 변경한뒤 모니터에서 조금 떨어진다음 촬영해본다면 이전과 다른 사진이 나올것입니다.</p>

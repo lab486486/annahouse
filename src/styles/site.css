@@ -237,6 +237,40 @@ nav a.is-current,
 .post-body {
   overflow-wrap: anywhere;
 }
+.post-body .photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 20px 0 28px;
+}
+.post-body .photo-grid img,
+.post-body .photo-single img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: top center;
+}
+.post-body .photo-grid img {
+  aspect-ratio: 3 / 4;
+}
+.post-body .photo-single {
+  margin: 20px 0 28px;
+}
+.post-body .photo-single img {
+  max-width: 420px;
+  margin: 0 auto;
+}
+.post-body .video-wrap {
+  margin: 20px 0 28px;
+  text-align: center;
+}
+.post-body .video-wrap iframe {
+  max-width: 100%;
+  border: 0;
+  border-radius: 12px;
+}
 .post-side {
   display: none;
 }

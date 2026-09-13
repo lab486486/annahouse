@@ -6,7 +6,7 @@ description: "YTN 조예진 아나운서 출연 영상을 보면 미스코리아
 legacy: true
 tags:
   - "방송 패션"
-cover_image: "/wp-content/uploads/2026/02/R1280x0_197-300x300.jpg"
+cover_image: "/wp-content/uploads/tistory/250/img.webp"
 ---
 YTN 조예진 아나운서 출연 영상을 보면 미스코리아 출신다운 화려한 외모와 안정적인 목소리에 절로 시선이 집중되곤 해요.
 
@@ -16,6 +16,21 @@ YTN 조예진 아나운서 출연 영상을 보면 미스코리아 출신다운 
 
 <img class="alignnone size-medium wp-image-960" src="/wp-content/uploads/2026/02/R1280x0_197-300x300.jpg" alt="조예진 아나운서 방송" width="300" height="300" />
 <h2>YTN 조예진 아나운서 미스코리아 경력 및 프로필</h2>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/250/img.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/20211117_074125_0000.png" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_1.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_2.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_3.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_4.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_5.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_6.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_7.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_8.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_9.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/250/img_10.webp" alt="" />
+</div>
+
 <h3>미스코리아 본선 진출로 증명된 조예진 아나운서</h3>
 조예진 아나운서는 과거 2015년 미스코리아 경남 대표로 선발되어 본선 무대까지 진출했던 특별한 이력을 가지고 있어요.
 

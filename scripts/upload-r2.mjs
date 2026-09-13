@@ -12,7 +12,9 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const bucket = process.env.BUCKET || "annahouse-media";
-const manifestPath = path.join(root, "scripts/.wxr-images.json");
+const manifestPath = process.argv[2]
+  ? path.resolve(process.argv[2])
+  : path.join(root, "scripts/.wxr-images.json");
 
 function contentType(file) {
   const ext = path.extname(file).toLowerCase();
@@ -64,7 +66,7 @@ async function mapPool(items, limit, worker) {
 
 async function main() {
   if (!fs.existsSync(manifestPath)) {
-    console.error("Run import-wxr.mjs first:", manifestPath);
+    console.error("Missing manifest:", manifestPath);
     process.exit(1);
   }
   const items = JSON.parse(fs.readFileSync(manifestPath, "utf8")).filter((item) =>

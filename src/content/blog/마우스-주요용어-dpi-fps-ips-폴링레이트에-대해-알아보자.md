@@ -6,8 +6,16 @@ description: "마우스의 세계에 입문했다면 반드시 알아야할 용�
 legacy: true
 tags:
   - "잡학사전"
+cover_image: "/wp-content/uploads/tistory/36/img.png"
 ---
-<figure class="imageblock alignCenter" data-filename="20200201_144541_0000.png" data-origin-width="400" data-origin-height="400" data-ke-mobilestyle="widthContent"><span data-url="https://blog.kakaocdn.net/dna/bTiVhs/btqBDaOiW7E/AAAAAAAAAAAAAAAAAAAAAIu9TgLlBUXtJFTXnAbZtBlCo_SepbCoH12g4UYskNdE/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=stSuoeduSpDHLZxUTMu%2BajrigXo%3D" data-phocus="https://blog.kakaocdn.net/dna/bTiVhs/btqBDaOiW7E/AAAAAAAAAAAAAAAAAAAAAIu9TgLlBUXtJFTXnAbZtBlCo_SepbCoH12g4UYskNdE/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=stSuoeduSpDHLZxUTMu%2BajrigXo%3D"><img src="https://blog.kakaocdn.net/dna/bTiVhs/btqBDaOiW7E/AAAAAAAAAAAAAAAAAAAAAIu9TgLlBUXtJFTXnAbZtBlCo_SepbCoH12g4UYskNdE/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=stSuoeduSpDHLZxUTMu%2BajrigXo%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbTiVhs%2FbtqBDaOiW7E%2FAAAAAAAAAAAAAAAAAAAAAIu9TgLlBUXtJFTXnAbZtBlCo_SepbCoH12g4UYskNdE%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DstSuoeduSpDHLZxUTMu%252BajrigXo%253D" data-filename="20200201_144541_0000.png" data-origin-width="400" data-origin-height="400" data-ke-mobilestyle="widthContent" /></span></figure>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/36/img.png" alt="" />
+  <img src="/wp-content/uploads/tistory/36/img_1.png" alt="" />
+  <img src="/wp-content/uploads/tistory/36/46382_18155_3735.png" alt="" />
+  <img src="/wp-content/uploads/tistory/36/instagram_grupodps_82182739_2641867252578008_4502475346654878653.jpg" alt="" />
+</div>
+
+
 <div>
 
 <span style="letter-spacing: 0px;">마우스의 세계에 입문했다면 반드시 알아야할 용어가 있는데 바로 DPI, FPS, IPS, 폴링레이트다. </span>
@@ -17,7 +25,7 @@ tags:
 혹은 자신이 원하지않는 장비를 사게되는 꼴이니 반드시 용어의 의미에 대해 확인후 마우스를 보도록 하자!
 
 </div>
-<figure class="imageblock alignCenter" data-origin-width="579" data-origin-height="376" data-ke-mobilestyle="widthContent"><span data-url="https://t1.daumcdn.net/cfile/tistory/99F7A64A5E31AC4B33?original" data-phocus="https://t1.daumcdn.net/cfile/tistory/99F7A64A5E31AC4B33?original"><img src="https://t1.daumcdn.net/cfile/tistory/99F7A64A5E31AC4B33" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99F7A64A5E31AC4B33" width="579" height="376" data-origin-width="579" data-origin-height="376" data-ke-mobilestyle="widthContent" /></span></figure>
+
 <h3 class="tt-youtube-plugin" style="box-sizing: border-box; font-size: 16px; font-family: Arial, 돋움, Dotum, AppleGothic, sans-serif; border-right-width: 0px; word-spacing: 3px; border-bottom: #e0434e 2px solid; text-align: left; border-left: #e0434e 10px solid; margin: 5px 0px; letter-spacing: 1px; line-height: 1.5; border-top-width: 0px; border-image: initial; padding: 3px 5px 3px 5px;"><span style="font-size: 14pt; color: #000000;">첫째. DPI (Dots Per Inch)</span></h3>
 DPI는 마우스가 1인치를 움직일때 몇 개의 Dots(픽셀)를 이동하는지 나타내는 용어이다.
 
@@ -43,11 +51,10 @@ IPS가 높을수록 사용자의 움직임을 정확히 잡아주니 대화면, 
 
 화면의 마우스커서가 자주 끊긴다면 폴링레이트 값을 확인해야되겠다.
 <div>
-<figure class="imageblock alignCenter" data-origin-width="1000" data-origin-height="750" data-ke-mobilestyle="widthContent"><span data-url="https://t1.daumcdn.net/cfile/tistory/993DDB375E31AC4C05?original" data-phocus="https://t1.daumcdn.net/cfile/tistory/993DDB375E31AC4C05?original"><img src="https://t1.daumcdn.net/cfile/tistory/993DDB375E31AC4C05" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F993DDB375E31AC4C05" width="860" height="645" data-origin-width="1000" data-origin-height="750" data-ke-mobilestyle="widthContent" /></span></figure>
+
 </div>
 자! 이제 마우스 주요용어에 대해 알아보았다.
 
 아무것도 모르고 이야기하는 친구놈이 있다면 아닥 시킬수 있도록 생각을 잠시 정리하고 쏘아대도록 하자~
 
-"마우스는 마리야..."<span data-url="https://blog.kakaocdn.net/dna/trjCQ/btq4o8ahD1V/AAAAAAAAAAAAAAAAAAAAAOYrqT3MpC9q2gSZLQA37D74GF1jkHnIjcz3B15TXYMe/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=u4wpYkRBE2IDpNlOWH95AGY7tN4%3D" data-phocus="https://blog.kakaocdn.net/dna/trjCQ/btq4o8ahD1V/AAAAAAAAAAAAAAAAAAAAAOYrqT3MpC9q2gSZLQA37D74GF1jkHnIjcz3B15TXYMe/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=u4wpYkRBE2IDpNlOWH95AGY7tN4%3D">
-</span>
+"마우스는 마리야..."

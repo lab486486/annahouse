@@ -6,7 +6,7 @@ description: "정확한 전달력과 지적인 분위기 그리고 세련된 패
 legacy: true
 tags:
   - "방송 패션"
-cover_image: "/wp-content/uploads/2026/02/R1280x0_56-205x300.jpg"
+cover_image: "/wp-content/uploads/tistory/126/img.jpg"
 ---
 정확한 전달력과 지적인 분위기 그리고 세련된 패션 감각으로 많은 사랑을 받는 최현미 기상캐스터 관련 정보가 눈에 띕니다.
 
@@ -16,6 +16,22 @@ cover_image: "/wp-content/uploads/2026/02/R1280x0_56-205x300.jpg"
 
 <img class="alignnone size-medium wp-image-798" src="/wp-content/uploads/2026/02/R1280x0_56-205x300.jpg" alt="" width="205" height="300" />
 <h2>최현미 기상캐스터 방송 경력 및 주요 활동</h2>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/126/img.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/126/20200908_171152_0000.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_1.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_2.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/최현미 기상캐스터2.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_3.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_4.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_5.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_6.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_7.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_8.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_9.png" alt="" />
+  <img src="/wp-content/uploads/tistory/126/img_10.png" alt="" />
+</div>
+
 <h3>YTN 거쳐 KBS 입사까지 과정</h3>
 2019년 뉴스 전문 채널 YTN에 입사하며 이름을 알린 최현미 기상캐스터 2021년 12월부터 KBS 기상캐스터로 자리를 옮겨 현재까지 활발히 활동 중입니다.
 

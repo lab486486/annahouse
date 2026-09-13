@@ -6,7 +6,7 @@ description: "YTN 원이다 기상캐스터 출연 소식이 전해지면서 단
 legacy: true
 tags:
   - "방송 패션"
-cover_image: "/wp-content/uploads/2026/02/R1280x0_99-222x300.jpg"
+cover_image: "/wp-content/uploads/tistory/239/img.jpg"
 ---
 YTN 원이다 기상캐스터 출연 소식이 전해지면서 단아한 외모와 신뢰감 있는 목소리로 많은 시청자들의 관심을 받고 있어요.
 
@@ -16,6 +16,18 @@ YTN의 새로운 얼굴로 자리매김하며 팬층을 넓혀가고 있는 YTN 
 
 <img class="alignnone size-medium wp-image-853" src="/wp-content/uploads/2026/02/R1280x0_99-222x300.jpg" alt="원이다 기상캐스터" width="222" height="300" />
 <h2>YTN 원이다 기상캐스터 경력 및 방송 활동</h2>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/239/img.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/239/img_1.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/239/img_2.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/239/img_3.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/239/img_4.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/239/img_5.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/239/img_6.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/239/img_7.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/239/img_8.jpg" alt="" />
+</div>
+
 <h3>초스피드로 합격한 준비된 인재</h3>
 1995년생인 그녀는 2026년 기준 현재 31세이며, 이화여자대학교 대학원에서 언론홍보학 석사 과정을 밟고 있는 재원으로 알려져 있습니다.
 

@@ -6,7 +6,7 @@ description: "SBS Golf 유튜브 채널에서 큰 인기를 끌었던 '골프에
 legacy: true
 tags:
   - "잡학사전"
-cover_image: "/wp-content/uploads/2026/02/R1280x0_112-300x156.jpg"
+cover_image: "/wp-content/uploads/tistory/139/img.jpg"
 ---
 SBS Golf 유튜브 채널에서 큰 인기를 끌었던 '골프에 반하다' 첫 방송의 배경인 파인비치CC 관련 정보를 자세히 알려드리겠습니다.
 
@@ -16,6 +16,34 @@ SBS Golf 유튜브 채널에서 큰 인기를 끌었던 '골프에 반하다' �
 
 <img class="alignnone size-medium wp-image-867" src="/wp-content/uploads/2026/02/R1280x0_112-300x156.jpg" alt="골프에 반하다" width="300" height="156" />
 <h2>골프에 반하다 1회 : 파인비치CC 출연진 및 코스</h2>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/139/img.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/139/20211108_225145_0000.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_1.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_2.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_3.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_4.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_5.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_6.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_7.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_8.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_9.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_10.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_11.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_12.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_13.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_14.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_15.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_16.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_17.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_18.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_19.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_20.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_21.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_22.png" alt="" />
+  <img src="/wp-content/uploads/tistory/139/img_23.png" alt="" />
+</div>
+
 <h3>힐링을 선사한 미녀 프로 3인방</h3>
 시즌 1의 포문을 연 출연진은 레슨 프로로도 왕성하게 활동 중인 강다나, 지승은, 박진이 프로였어요.
 
