@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Achive/{id}/img → public/wp-content/uploads/tistory/{id}/
- * 숫자 퍼머링크와 맞는 옛 글에 백업 사진을 문장 사이에 1~2장씩 끼워 넣습니다.
+ * 숫자 퍼머링크와 맞는 옛 글에 백업 사진을 문장 사이에 1~2장씩, 글 전체에 나눠 넣습니다.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -153,43 +153,77 @@ function tokenize(html) {
   return tokens.filter((token) => token.type !== "empty");
 }
 
-function takePhotos(queue) {
+function takePhotos(queue, count = 0) {
   if (!queue.length) return "";
-  const count = queue.length >= 2 ? 2 : 1;
-  return photoMarkup(queue.splice(0, count));
+  const size = count > 0 ? Math.min(count, queue.length, 2) : queue.length >= 2 ? 2 : 1;
+  return photoMarkup(queue.splice(0, size));
 }
 
 function lastType(tokens) {
   return tokens.at(-1)?.type;
 }
 
+function evenIndices(slotCount, groupCount) {
+  if (groupCount <= 0 || slotCount <= 0) return [];
+  if (groupCount >= slotCount) return [...Array(slotCount).keys()];
+  if (groupCount === 1) return [Math.floor((slotCount - 1) / 2)];
+  return Array.from({ length: groupCount }, (_, i) => Math.round((i * (slotCount - 1)) / (groupCount - 1)));
+}
+
+function groupSizes(photoCount, slotCount) {
+  if (!photoCount || !slotCount) return [];
+  const groupCount = Math.min(slotCount, Math.ceil(photoCount / 2));
+  const sizes = [];
+  let left = photoCount;
+  for (let i = 0; i < groupCount; i += 1) {
+    const remaining = groupCount - i;
+    const size = left > remaining ? 2 : 1;
+    sizes.push(size);
+    left -= size;
+  }
+  return sizes;
+}
+
 function insertPhotos(html, urls) {
   const queue = [...urls];
   const tokens = tokenize(html.replace(/\r\n/g, "\n").replaceAll(SLOT, `${SLOT}`));
   const textTotal = tokens.filter((token) => token.type === "text").length;
-  const out = [];
+  const candidates = [];
   let textSeen = 0;
+  tokens.forEach((token, index) => {
+    if (token.type === "text") {
+      textSeen += 1;
+      if (textSeen < textTotal) candidates.push(index);
+    } else if (token.type === "slot") {
+      candidates.push(index);
+    }
+  });
 
-  for (const token of tokens) {
+  const sizes = groupSizes(queue.length, candidates.length);
+  const picked = new Map();
+  evenIndices(candidates.length, sizes.length).forEach((slot, i) => {
+    picked.set(candidates[slot], sizes[i]);
+  });
+
+  const out = [];
+  for (let i = 0; i < tokens.length; i += 1) {
+    const token = tokens[i];
     if (token.type === "slot") {
-      if (textSeen && textSeen < textTotal && queue.length && lastType(out) !== "photo") {
-        out.push({ type: "photo", html: takePhotos(queue) });
+      const count = picked.get(i);
+      if (count && lastType(out) !== "photo") {
+        out.push({ type: "photo", html: takePhotos(queue, count) });
       }
       continue;
     }
     out.push(token);
-    if (token.type !== "text") continue;
-    textSeen += 1;
-    if (textSeen < textTotal && queue.length && lastType(out) !== "photo") {
-      out.push({ type: "photo", html: takePhotos(queue) });
+    const count = picked.get(i);
+    if (count && lastType(out) !== "photo") {
+      out.push({ type: "photo", html: takePhotos(queue, count) });
     }
   }
 
-  if (queue.length && textTotal <= 1) {
-    const lastText = [...out].reverse().find((token) => token.type === "text");
-    if (lastText && lastType(out) !== "photo") {
-      out.push({ type: "photo", html: takePhotos(queue) });
-    }
+  if (queue.length && textTotal <= 1 && lastType(out) !== "photo") {
+    out.push({ type: "photo", html: takePhotos(queue) });
   }
 
   return out.map((token) => token.html).join("\n");

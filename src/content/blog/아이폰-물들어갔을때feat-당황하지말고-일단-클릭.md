@@ -9,11 +9,6 @@ tags:
 cover_image: "/wp-content/uploads/tistory/38/img.jpg"
 ---
 <p>새로운 아이폰 시리즈가 출시될때마다 또 어떤 혁신적인 기능이 포함되어있을까 자세히 보는 이들이 많아졌다.</p>
-<div class="photo-grid">
-  <img src="/wp-content/uploads/tistory/38/img.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/38/img_1.jpg" alt="" />
-</div>
-
 <p>그만큼 Apple은 혁신의 아이콘이고, 그들이 출시하는 아이폰에는 매번 '신선한데?' 라고 생각이 될 정도로</p>
 <p>혁신적인 기능들이 매번 시리즈마다 탑재되어 출시되었던것 같다.</p>
 <p>최근들어서 스마트폰들이 거의 비슷하게 출시되면서 이러한 관심은 조금씩 줄어들긴 했지만 아이폰만큼은 다른것 같다.</p>
@@ -35,6 +30,11 @@ cover_image: "/wp-content/uploads/tistory/38/img.jpg"
 <h3 class="tt-youtube-plugin" style="box-sizing: border-box; font-size: 16px; font-family: Arial, 돋움, Dotum, AppleGothic, sans-serif; border-right-width: 0px; word-spacing: 3px; border-bottom: #54856c 2px solid; text-align: left; border-left: #54856c 10px solid; margin: 5px 0px; letter-spacing: 1px; line-height: 1.5; border-top-width: 0px; border-image: initial; padding: 3px 5px 3px 5px;"><span style="font-size: 14pt; color: #000000;"><span style="color: #333333;">IP68(최대수심 4m이내, 최장30분)인증</span></span></h3>
 <p><span style="color: #333333;">아이폰11, 아이폰11 프로, 아이폰11 프로 Max (아이폰11 전 시리즈)</span></p>
 <p>아이폰 XS Max, 아이폰 XS&nbsp;</p>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/38/img.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/38/img_1.jpg" alt="" />
+</div>
+
 <p>이렇듯 아이폰7 이상의 스마트폰은 물이 들어가도 크게 신경쓰지 않아도 된다.</p>
 <p>물론 생활방수 및 방진 효과는 영구적이진 않으나, 기본적으로 아이폰은 생활방수 기능이 있기에 물에는 안심해도 된다.</p>
 <h3 data-ke-size="size23">그럼 탄산음료나 커피 등은 어떨까?</h3>

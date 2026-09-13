@@ -18,14 +18,7 @@ cover_image: "/wp-content/uploads/tistory/257/img.webp"
 </div>
 
 <p data-ke-size="size16">그중에서 라이브레슨 70의 인기가 상당히 높은데요! 미남, 미녀 프로골퍼를 비롯해 골린이들의 가려운 부분을 속 시원히 알려주기 때문인 것 같습니다.</p>
-<div class="photo-grid">
-  <img src="/wp-content/uploads/tistory/257/img_2.webp" alt="" />
-  <img src="/wp-content/uploads/tistory/257/img_3.webp" alt="" />
-</div>
-
 <p data-ke-size="size16">아래에서 jtbc골프 실시간 생방송 보는 방법에 대해 알아보도록 하겠습니다.</p>
-<p class="photo-single"><img src="/wp-content/uploads/tistory/257/img_4.webp" alt="" /></p>
-
 <h3 id="JTBC골프_대표_프로그램_라이브레슨_70" data-ke-size="size23">JTBC골프 대표 프로그램 라이브레슨 70</h3>
 <p data-ke-size="size16">JTBC골프 채널에서 대회를 제외하고 가장 높은 시청률을 보이는 대표 프로그램이 바로 라이브레슨 70입니다.</p>
 <p data-ke-size="size16">프로 골퍼들과 함께하는 짧지만 강한 골프 레슨이라는 슬로건 아래 미남, 미녀 프로골퍼들이 총출동하는데요!</p>
@@ -48,6 +41,10 @@ cover_image: "/wp-content/uploads/tistory/257/img.webp"
 <p data-ke-size="size16">지금 방송중! 온에어라는 메뉴 밑에 ON-AIR라는 핑크색 아이콘과 함께 현재 방송 중인 프로그램이 선택되어 있습니다.</p>
 <p data-ke-size="size16">현재 방송중인 프로그램의 제목을 클릭하게 되면 실시간 방송 페이지로 이동하게 됩니다.</p>
 <p data-ke-size="size16">여기서 약 10~15초 동안의 광고를 시청한 후 일반화질로 JTBC Golf 실시간 방송을 시청할 수 있는데요! 초고화질로 시청하는 방법은 아래 JTBC골프 멤버십 프로그램을 이용하면 됩니다.</p>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/257/img_2.webp" alt="" />
+  <img src="/wp-content/uploads/tistory/257/img_3.webp" alt="" />
+</div>
 
 &nbsp;
 
@@ -127,7 +124,10 @@ JTBC골프 쇼핑 5% 즉시할인</td>
 </tbody>
 </table>
 <p data-ke-size="size16">이외에 지역케이블 방송사의 경우 (주)딜라이브는 112번, B tv케이블 975번, LG 헬로비전 101번, (주)남인천방송 127번, (주)아름방송네트워크 67번, (주)현대 HCN부산방송 507번 등에서 JTBC골프를 볼 수 있습니다.</p>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/257/img_4.webp" alt="" /></p>
+
 <p data-ke-size="size16">이상으로 JTBC골프 실시간 생방송 보는 방법에 대해 알아봤습니다. 날씨가 점점 좋아지고 있는데요! 가족, 친구, 지인들과 필드로 나가서 자연을 만끽하며 즐거운 시간 보내시길 바라겠습니다.</p>
 
 </div>
 <div class="revenue_unit_wrap"></div>
+

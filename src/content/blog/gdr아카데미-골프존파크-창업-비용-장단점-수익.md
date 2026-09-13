@@ -10,8 +10,6 @@ cover_image: "/wp-content/uploads/tistory/242/골프존파ᄏ�
 ---
 <h2 id="GDR아카데미_골프존파크_창업_비용_장단점" data-ke-size="size26">GDR아카데미 골프존파크 창업 비용 장단점</h2>
 <p data-ke-size="size16">답답한 삶 속에서 골프의 재미를 맛보면서 골프 인구가 급속도로 증가하면서 GDR아카데미 골프존파크 창업에 대한 관심이 높아지고 있습니다.</p>
-<p class="photo-single"><img src="/wp-content/uploads/tistory/242/골프존파크_창업06.webp" alt="" /></p>
-
 <p data-ke-size="size16">이러한 가운데 독보적인 점유율을 가지고 있는 GDR아카데미 골프존파크 창업에 대해 관심가지는 분들도 늘어나고 있는데요!</p>
 <p data-ke-size="size16">아래에서 GDR아카데미 골프존파크 창업 비용과 장단점, 수익 순으로 알아보도록 하겠습니다.</p>
 <h3 id="1._GDR아카데미_골프존파크" data-ke-size="size23">1. GDR아카데미 골프존파크</h3>
@@ -46,6 +44,8 @@ cover_image: "/wp-content/uploads/tistory/242/골프존파ᄏ�
 </table>
 <p data-ke-size="size16">가맹비에는 교육비와 행정비가 포함되고 영업 개시 이전에 점주님께서 부담해야 됩니다. 장비 설치비는 TWOVISION PLUS시스템으로 장비와 SW 라이선스 및 설치비가 포함된 프로모션 가격입니다.</p>
 <p data-ke-size="size16">인테리어와 간판은 본사 가이드에 따라 제작되며, 시설 내 방염처리를 하여 평당 140만원 선에서 인테리어가 진행되며 간판의 경우 건물과 간판 형태에 따라 추가요금이 발생할 수 있습니다.</p>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/242/골프존파크_창업06.webp" alt="" /></p>
+
 <p data-ke-size="size16">골프 용품은 5개 룸을 기준으로 볼, 클럽, 장갑, 골프화 등으로 구성되어 있습니다. 최근 물가상승 영향으로 장비 및 인테리어 비용이 상승될 수도 있으니 창업비용 도표는 참고용으로만 확인하시면 되겠습니다.</p>
 <p data-ke-size="size16">창업비용에서 별도금액으로 제외된 사항으로는 냉난방기, 공조시설, 소방시설, 정기증설, 철거, 인터넷, 화장실 공사, 기타 전자제품 등으로 4억 8천만원+5천만원 정도로 계산하시면 되겠습니다.</p>
 <div class="video-wrap"><iframe title="entryIframe1" src="https://www.youtube.com/embed/OvuG0CoyS4M" width="860" height="484" frameborder="" allowfullscreen="allowfullscreen" data-mce-fragment="1"></iframe></div>

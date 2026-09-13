@@ -10,8 +10,6 @@ cover_image: "/wp-content/uploads/tistory/213/img.png"
 ---
 <h2 data-ke-size="size26">GDR 아카데미 가격</h2>
 <p data-ke-size="size16">골프존이 만든 골프레슨 전문 연습장 gdr 아카데미에 대한 관심이 높아지면서, 전문 프로골퍼의 레슨과 gdr 시스템의 조합의 골프 비용이 얼마인지, 그리고 직영매장과 개인매장의 차이가 무엇인지 궁금해하시는 분들이 부쩍 늘고 있습니다.</p>
-<p class="photo-single"><img src="/wp-content/uploads/tistory/213/img.png" alt="" /></p>
-
 <p data-ke-size="size16"><b>아래에서 GDR 아카데미 가격</b>과 골프레슨 비용, <b>직영매장과 개인매장에 대해 비교</b>해보도록 하겠습니다.</p>
 
 <center>
@@ -38,6 +36,8 @@ cover_image: "/wp-content/uploads/tistory/213/img.png"
 <li>20회(3개월) : 27만원 / 1회 16,000원</li>
 <li>30회(4개월) : 55만원 / 1회 15,000원</li>
 </ul>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/213/img.png" alt="" /></p>
+
 <p data-ke-size="size16">프로모션의 경우에는 10회 13만원대로 기존 가격보다 5만원정도 저렴하게 진행되는 상품도 있었습니다. 이건 매달 매장에 따라 시간과 비용이 다른 부분이니 인터넷이나 가까운 GDR아카데미를 방문해보시는 것을 추천드립니다.</p>
 
 <center>

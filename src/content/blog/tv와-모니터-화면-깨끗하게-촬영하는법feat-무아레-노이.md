@@ -16,27 +16,13 @@ cover_image: "/wp-content/uploads/tistory/48/img.jpg"
 </div>
 
 <p data-ke-size="size16">이러한 이글거리는 것은 무엇일까요? 도대체 모니터나 TV화면을 촬영하면 이글이글거리는 화면이 안나오게 촬영할 순 없을까요? 먼저 이글거림에 대해 알아봅시다.</p>
-<div class="photo-grid">
-  <img src="/wp-content/uploads/tistory/48/img_1.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/48/20200207_144539.jpg" alt="" />
-</div>
-
 <h3 id="무아레_현상" data-ke-size="size23">무아레 현상</h3>
 
 <div>
 <div class="txc-textbox">
 
 <p data-ke-size="size16">무아레(moire)무늬라고 하는 이런 격자, 물결무늬는 스마트폰(디지털카메라)으로 모니터화면 촬영시 이미지 센서가 모자이크 방식으로 센서와 모니터가 일치하지않아 발생하게 됩니다.</p>
-<div class="photo-grid">
-  <img src="/wp-content/uploads/tistory/48/20200207_144557.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/48/20200207_144616.jpg" alt="" />
-</div>
-
 <p data-ke-size="size16">이러한 이유로 스마트폰으로 촬영시 무아레 현상에 의해서 결과물(사진)이 물결처럼 나오게 되는 것입니다. 그렇다면 어떻게하면 무아레 현상을 없앨수 있을까요?</p>
-<div class="photo-grid">
-  <img src="/wp-content/uploads/tistory/48/20200207_144637.jpg" alt="" />
-  <img src="/wp-content/uploads/tistory/48/copyright.png" alt="" />
-</div>
 
 </div>
 </div>
@@ -53,6 +39,11 @@ cover_image: "/wp-content/uploads/tistory/48/img.jpg"
 <p data-ke-size="size16"><!-- ������ ���� --></p>
 <p data-ke-size="size16">이건 무아레 현상을 없애는 방법으로 촬영한 사진인데 거의 물결무늬가 보이지않습니다. 또렷하진않지만 그래도 무아레 현상이 생긴 사진보다는 보기가 좀더 수월해보입니다.</p>
 <p data-ke-size="size16">자! 그럼 본격적으로 무아레 현상을 없애보도록 하겠습니다. 무아레 현상을 없애는 방법은 2가지 정도가 있다.</p>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/48/img_1.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/48/20200207_144539.jpg" alt="" />
+</div>
+
 <p data-ke-size="size16">이 방법은 새로운 어플을 받거나 하는 과정이 없는, 돈 안드는 방법이니 감안해서 봐주기 바라겠습니다.</p>
 <p data-ke-size="size16"><!-- ���ñ� ����1--></p>
 <h4 data-ke-size="size20"> TV와 모니터 깔끔하게 촬영하는 방법</h4>
@@ -66,6 +57,10 @@ cover_image: "/wp-content/uploads/tistory/48/img.jpg"
 <p data-ke-size="size16">전면부 카메라, 그러니깐 셀카찍을때 사용하는 카메라로 모니터를 촬영해보면 훨씬 무아레 현상이 없어져 있는것을 확인할 수 있을것입니다.</p>
 <p data-ke-size="size16">다만, 셀카용 전면부카메라를 이용하게되면 잘 찍히고 있는지 어려운 단점이 있습니다.</p>
 <p data-ke-size="size16">그래서 후면부 카메라를 이용하는것이 편할것입니다. 대부분의 스마트폰 카메라가 수동모드를 지원할텐데 약간의 설정을 바꾸면 무아레 현상이 현저히 줄어드는것을 볼수있습니다.</p>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/48/20200207_144557.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/48/20200207_144616.jpg" alt="" />
+</div>
 
 </div>
 </div>
@@ -78,4 +73,9 @@ cover_image: "/wp-content/uploads/tistory/48/img.jpg"
 <p data-ke-size="size16">사진은 4장이지만, 실제로 바꾸는 설정값은 감도(ISO)와 셔터스피드 2개뿐입니다.</p>
 <p data-ke-size="size16">이렇게 변경한뒤 모니터에서 조금 떨어진다음 촬영해본다면 이전과 다른 사진이 나올것입니다.</p>
 <p data-ke-size="size16">이렇게 바꾸는것도 귀찮다면 줌 기능을 이용해서 확대한 상태로 모니터 화면을 촬영해봅시다!</p>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/48/20200207_144637.jpg" alt="" />
+  <img src="/wp-content/uploads/tistory/48/copyright.png" alt="" />
+</div>
+
 <p data-ke-size="size16">이것도 하나의 방법이긴한데 설정값을 바꾸는게 좀 더 편하니 설정값을 바꿔서 사용하는 것을 추천합니다.</p>

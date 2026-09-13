@@ -12,11 +12,6 @@ cover_image: "/wp-content/uploads/tistory/34/20200201_142218_0000.png"
 <div>마우스를 구입하려고 제품 설명란을 보면 DPI라는 글자를 마주하게 되는데 분명 높을수록 좋은 것&nbsp;같긴한데..</div>
 <div>&nbsp;</div>
 <div>왜 좋은건지 뭐가 좋은건지 제대로 알진 못했던것 같다.</div>
-<div class="photo-grid">
-  <img src="/wp-content/uploads/tistory/34/20200201_142218_0000.png" alt="" />
-  <img src="/wp-content/uploads/tistory/34/screenshot_20200127-231517_naver.jpg" alt="" />
-</div>
-
 <div>결론부터 말하자면 DPI = 프린터, CPI = 마우스</div>
 <div>&nbsp;</div>
 <div>마우스에 한해 DPI와 CPI 동일한 뜻이라 보면 되겠다.</div>
@@ -66,6 +61,11 @@ cover_image: "/wp-content/uploads/tistory/34/20200201_142218_0000.png"
 </center></div>
 <div>&nbsp;</div>
 <div>
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/34/20200201_142218_0000.png" alt="" />
+  <img src="/wp-content/uploads/tistory/34/screenshot_20200127-231517_naver.jpg" alt="" />
+</div>
+
 <h3 class="tt-youtube-plugin" style="box-sizing: border-box; font-size: 16px; font-family: Arial, 돋움, Dotum, AppleGothic, sans-serif; border-right-width: 0px; word-spacing: 3px; border-bottom: #54856c 2px solid; text-align: left; border-left: #54856c 10px solid; margin: 5px 0px; letter-spacing: 1px; line-height: 1.5; border-top-width: 0px; border-image: initial; padding: 3px 5px 3px 5px;" data-ke-size="size23"><span style="font-size: 14pt; color: #000000;"><span style="color: #333333;">마지막으로 eCPI는 무엇일까?</span></span></h3>
 <p data-ke-size="size16"><span style="letter-spacing: 0px;">바로 effective Count Per Inch의 약어인데 실질적인 CPI라는 의미이다.</span></p>
 </div>
@@ -83,3 +83,4 @@ cover_image: "/wp-content/uploads/tistory/34/20200201_142218_0000.png"
 <p data-ke-size="size16">공부만이 살길이다. 게임 연습도 하기전에 지치지말고 쉽게 터득하여 친구들을 무찔러버리자!</p>
 
 <div>&nbsp;</div>
+

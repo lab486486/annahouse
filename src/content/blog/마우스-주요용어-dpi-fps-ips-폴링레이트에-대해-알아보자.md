@@ -16,11 +16,6 @@ cover_image: "/wp-content/uploads/tistory/36/img.png"
 </div>
 
 이 용어들은 마우스의 성능과 연결되어 있다보니 제대로 뜻을 모르고 마우스를 구입한다면 자신과 맞지않는,
-<div class="photo-grid">
-  <img src="/wp-content/uploads/tistory/36/46382_18155_3735.png" alt="" />
-  <img src="/wp-content/uploads/tistory/36/instagram_grupodps_82182739_2641867252578008_4502475346654878653.jpg" alt="" />
-</div>
-
 혹은 자신이 원하지않는 장비를 사게되는 꼴이니 반드시 용어의 의미에 대해 확인후 마우스를 보도록 하자!
 </div>
 <h3 class="tt-youtube-plugin" style="box-sizing: border-box; font-size: 16px; font-family: Arial, 돋움, Dotum, AppleGothic, sans-serif; border-right-width: 0px; word-spacing: 3px; border-bottom: #e0434e 2px solid; text-align: left; border-left: #e0434e 10px solid; margin: 5px 0px; letter-spacing: 1px; line-height: 1.5; border-top-width: 0px; border-image: initial; padding: 3px 5px 3px 5px;"><span style="font-size: 14pt; color: #000000;">첫째. DPI (Dots Per Inch)</span></h3>
@@ -36,6 +31,11 @@ IPS는 마우스가 사용하는 사람의 움직임의 인식율을 나타내�
 <div>500IPS를 지원하는 <a href="https://coupa.ng/bZb9O7" target="_blank" rel="noopener">마우스</a>는 초당 500인치의 움직임을 인식한다고 생각하면 되겠다.</div>
 IPS가 높을수록 사용자의 움직임을 정확히 잡아주니 대화면, 고해상도 화면을 사용중이라면 IPS가 높은 마우스를 구입하기 바란다.
 <!-- INDEX-&#48152;&#51025;&#54805;-&#49345;&#45800;&#49688;&#54217; -->
+<div class="photo-grid">
+  <img src="/wp-content/uploads/tistory/36/46382_18155_3735.png" alt="" />
+  <img src="/wp-content/uploads/tistory/36/instagram_grupodps_82182739_2641867252578008_4502475346654878653.jpg" alt="" />
+</div>
+
 <h3 class="tt-youtube-plugin" style="box-sizing: border-box; font-size: 16px; font-family: Arial, 돋움, Dotum, AppleGothic, sans-serif; border-right-width: 0px; word-spacing: 3px; border-bottom: #54856c 2px solid; text-align: left; border-left: #54856c 10px solid; margin: 5px 0px; letter-spacing: 1px; line-height: 1.5; border-top-width: 0px; border-image: initial; padding: 3px 5px 3px 5px;"><span style="font-size: 14pt; color: #000000;">넷째. 폴링레이트 (Polling Rate)</span></h3>
 폴링레이트는 마우스와 컴퓨터간 신호를 주고받는 속도를 의미하는 용어이다.
 300Hz의 마우스는 1초에 300번을 컴퓨터로 신호를 보낸다.
