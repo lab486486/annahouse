@@ -273,17 +273,21 @@ nav a.is-current,
   box-sizing: border-box;
 }
 @media (max-width: 720px) {
-  .hero-portal-inner .lede .lede-next {
-    display: block;
-    margin-top: 6px;
-  }
   .search-box {
-    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    gap: 8px;
+  }
+  .search-box input {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 14px 14px;
   }
   .search-box button,
   .search-box-light button {
-    min-width: 4.75rem;
-    padding: 14px 20px;
+    flex: 0 0 auto;
+    min-width: 0;
+    padding: 14px 16px;
   }
   .post-lead {
     grid-template-columns: 1fr;
@@ -513,20 +517,28 @@ nav a.is-current,
 }
 .search-box {
   display: flex;
+  align-items: stretch;
   gap: 8px;
+  width: 100%;
   max-width: 36rem;
+  min-width: 0;
   margin-top: 24px;
+  box-sizing: border-box;
 }
 .hero-portal-inner .search-box {
   margin-left: auto;
   margin-right: auto;
 }
 .search-box input {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
   border: 0;
   border-radius: 999px;
   padding: 14px 18px;
   font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
 }
 .hero-portal .search-box input {
   background: rgba(10, 14, 24, 0.58);
