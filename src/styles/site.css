@@ -273,19 +273,41 @@ nav a.is-current,
   box-sizing: border-box;
 }
 @media (max-width: 720px) {
+  .hero-portal-inner .lede .lede-next {
+    display: block;
+    margin-top: 6px;
+  }
+  .search-box {
+    gap: 10px;
+  }
+  .search-box button,
+  .search-box-light button {
+    min-width: 4.75rem;
+    padding: 14px 20px;
+  }
   .post-lead {
-    grid-template-columns: 32% 1fr;
-    gap: 12px;
-    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .post-lead-thumb {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
   }
   .post-lead-thumb img {
+    width: 100%;
     height: auto;
-    max-height: 168px;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: top center;
   }
   .post-lead-text p {
     height: auto;
-    padding: 12px 14px !important;
-    font-size: 14px !important;
+    padding: 14px 16px !important;
+    font-size: 15px !important;
     margin-bottom: 0 !important;
   }
 }
@@ -529,13 +551,15 @@ nav a.is-current,
 }
 .search-box button,
 .search-box-light button {
+  flex: 0 0 auto;
   border: 0;
   border-radius: 999px;
-  padding: 14px 18px;
+  padding: 14px 22px;
   background: var(--accent);
   color: #fff;
   font: inherit;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
 }
 .hero-portal .search-box button {
@@ -625,6 +649,25 @@ nav a.is-current,
   height: 140px;
   border-radius: 12px;
   object-fit: cover;
+}
+.pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 32px 0 0;
+}
+.pager a,
+.pager span,
+.pager strong {
+  text-decoration: none;
+}
+.pager span { color: var(--muted); }
+.pager a {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 8px 14px;
 }
 .card-grid h3 { margin: 0; font-size: 1.05rem; }
 .card-grid p,

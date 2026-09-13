@@ -1,0 +1,31 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import AuthorArchive from "../../../components/AuthorArchive.astro";
+import author from "../../../data/authors.json";
+import { getBlogPosts, paginatePosts } from "../../../utils/posts";
+
+export function getStaticPaths() {
+  return [{ params: { name: author.slug } }];
+}
+
+const posts = await getBlogPosts();
+const listing = paginatePosts(posts, 1, author.pageSize);
+---
+
+<Layout title={`${author.name} 글`} description={`${author.name}이 올린 글을 모았습니다.`}>
+  <Header />
+  <main id="main" class="page-plain">
+    <div class="container">
+      <AuthorArchive
+        displayName={author.name}
+        slug={author.slug}
+        page={listing.page}
+        totalPages={listing.totalPages}
+        posts={listing.items}
+      />
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -76,6 +76,31 @@ export function popularCards(posts: Post[], popularSlugs: string[], limit = 6): 
   return picked;
 }
 
+export function authorUrl(slug: string, page = 1): string {
+  if (page <= 1) return `/author/${slug}/page/1/`;
+  return `/author/${slug}/page/${page}/`;
+}
+
+export function paginatePosts<T>(items: T[], page: number, pageSize: number): {
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+  items: T[];
+} {
+  const total = items.length;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const safePage = Math.min(Math.max(page, 1), totalPages);
+  const start = (safePage - 1) * pageSize;
+  return {
+    page: safePage,
+    pageSize,
+    total,
+    totalPages,
+    items: items.slice(start, start + pageSize),
+  };
+}
+
 export function formatDate(date: Date): string {
   return new Intl.DateTimeFormat("ko-KR", {
     year: "numeric",
