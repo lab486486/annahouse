@@ -3,17 +3,19 @@ import { site } from "../site.config";
 
 interface Props {
   overlay?: boolean;
+  fullBrand?: boolean;
 }
 
-const { overlay = false } = Astro.props;
+const { overlay = false, fullBrand = false } = Astro.props;
 const path = Astro.url.pathname;
 const isSaju = path.startsWith("/saju");
+const logoText = overlay || fullBrand ? site.name : site.brandName;
 ---
 
 <header class:list={["site-header", overlay && "site-header-overlay"]}>
   <div class="container header-inner">
     <div class="brand">
-      <a class="logo" href="/">{overlay ? "사주언니 안나의 집" : site.brandName}</a>
+      <a class="logo" href="/">{logoText}</a>
       {overlay && <p class="logo-desc">유명인 사주 검색</p>}
     </div>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴">

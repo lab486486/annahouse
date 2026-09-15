@@ -53,7 +53,7 @@ const related = isSajuPost(post)
   ogImage={ogImage}
   articlePublishedTime={post.data.date.toISOString()}
 >
-  <Header />
+  <Header fullBrand={isSajuPost(post)} />
   <main id="main" class="post-page">
     <div class="container post-wrap">
       <article class="post-article">
