@@ -9,7 +9,7 @@ interface Props {
 const { overlay = false, fullBrand = false } = Astro.props;
 const path = Astro.url.pathname;
 const isSaju = path.startsWith("/saju");
-const logoText = overlay || fullBrand ? site.name : site.brandName;
+const logoText = overlay || fullBrand || isSaju ? site.name : site.brandName;
 ---
 
 <header class:list={["site-header", overlay && "site-header-overlay"]}>
