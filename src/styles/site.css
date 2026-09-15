@@ -18,7 +18,8 @@ body {
   line-height: 1.7;
 }
 a { color: inherit; }
-img, svg { max-width: 100%; height: auto; }
+img { max-width: 100%; height: auto; }
+svg, svg * { box-sizing: content-box; }
 .skip-link {
   position: absolute;
   left: -999px;
@@ -236,6 +237,28 @@ nav a.is-current,
 }
 .post-body {
   overflow-wrap: anywhere;
+}
+.post-body .saju-diagram {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.post-body .saju-diagram[data-kind="network"],
+.post-body .saju-diagram[data-kind="timeline"],
+.post-body .saju-diagram[data-kind="palette"] {
+  margin: 8px auto 28px;
+}
+.post-body .saju-diagram[data-kind="network"] { max-width: 420px; }
+.post-body .saju-diagram[data-kind="radar"] { margin: 0; max-width: none; }
+.post-body .saju-diagram[data-kind="timeline"] { max-width: 380px; }
+.post-body .saju-diagram[data-kind="palette"] { max-width: 520px; }
+.post-body .saju-diagram svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 .post-body .photo-grid {
   display: grid;

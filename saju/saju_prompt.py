@@ -204,7 +204,7 @@ Because SVG layers stack in the order they are written, you MUST strictly follow
 Step 1: Draw all connector lines (<line>) first at the absolute top of the code. This ensures the lines sit entirely in the background. The starting point (x1, y1) for all lines must be uniformly set to the center of the middle circle: (250, 210).
 
 Step 2: Draw the circles (<circle>) to be placed on top of the connector lines.
-- Center Circle: Set the center coordinates to (250, 210), radius (r) to 50, and insert the {display_name}. You MUST apply fill-opacity="1" or a solid HEX color code (e.g., fill="#2b66ff") so that the background connector lines are completely hidden and never show through the circle.
+- Center Circle: Set the center coordinates to (250, 210), radius (r) to 50, and insert the {display_name}. You MUST use an opaque fill (fill="#3366ff" fill-opacity="1") and white name text (fill="#ffffff"). NEVER use opacity="0.1", fill-opacity="0.1", or a duplicate r="48" ring — connector lines must not show through the center.
 - Surrounding Circles (5 in total): Position these without error on a radial orbit with a radius of 110-120px around the center circle, strictly adhering to the following standard coordinate settings:
   * 12 o'clock position (Key Figure 1): Center (250, 90), Radius (r) 40
   * 2:30 position (Key Figure 2): Center (355, 150), Radius (r) 40
@@ -212,7 +212,7 @@ Step 2: Draw the circles (<circle>) to be placed on top of the connector lines.
   * 7 o'clock position (Other Figure 2): Center (180, 300), Radius (r) 30
   * 9:30 position (Other Figure 3): Center (145, 150), Radius (r) 30
 
-Step 3: Render the name text (<text>) last on the topmost surface layer, applying absolute center alignment attributes (text-anchor="middle" dominant-baseline="central").
+Step 3: Render the name text (<text>) last on the topmost surface layer, applying absolute center alignment attributes (text-anchor="middle" dominant-baseline="middle").
 Ensure the (x, y) coordinates of the text perfectly match the center coordinates (cx, cy) of each respective circle so the text remains perfectly centered without drifting.
 Apply differential font sizes: 15px for the center circle, 13px for the key figures, and 11px for the other figures.
 
