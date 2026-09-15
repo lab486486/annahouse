@@ -11,6 +11,7 @@ import {
   TAG_PAGE_SIZE,
   tagUrl,
 } from "../utils/posts";
+import { escapeXml } from "../utils/xml";
 
 type SitemapUrl = {
   path: string;
@@ -25,6 +26,15 @@ function isoDate(date: Date): string {
 
 function loc(path: string): string {
   return new URL(path, site.baseUrl).href;
+}
+
+function urlEntry(entry: SitemapUrl): string {
+  const bits = [`<url><loc>${escapeXml(loc(entry.path))}</loc>`];
+  if (entry.lastmod) bits.push(`<lastmod>${isoDate(entry.lastmod)}</lastmod>`);
+  if (entry.changefreq) bits.push(`<changefreq>${entry.changefreq}</changefreq>`);
+  if (entry.priority) bits.push(`<priority>${entry.priority}</priority>`);
+  bits.push("</url>");
+  return bits.join("");
 }
 
 export const GET: APIRoute = async () => {
@@ -73,19 +83,8 @@ export const GET: APIRoute = async () => {
     });
   }
 
-  const body = urls
-    .map((entry) => {
-      const bits = [`<url><loc>${loc(entry.path)}</loc>`];
-      if (entry.lastmod) bits.push(`<lastmod>${isoDate(entry.lastmod)}</lastmod>`);
-      if (entry.changefreq) bits.push(`<changefreq>${entry.changefreq}</changefreq>`);
-      if (entry.priority) bits.push(`<priority>${entry.priority}</priority>`);
-      bits.push("</url>");
-      return bits.join("");
-    })
-    .join("");
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${body}</urlset>`;
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(urlEntry).join("\n")}\n</urlset>\n`;
   return new Response(xml, {
-    headers: { "Content-Type": "application/xml; charset=utf-8" },
+    headers: { "Content-Type": "text/xml; charset=utf-8" },
   });
 };

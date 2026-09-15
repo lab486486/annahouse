@@ -2,6 +2,12 @@
   Content-Type: application/rss+xml; charset=utf-8
 /rss/
   Content-Type: application/rss+xml; charset=utf-8
+/rss.xml
+  Content-Type: application/rss+xml; charset=utf-8
+/sitemap.xml
+  Content-Type: text/xml; charset=utf-8
+/sitemap.xml/
+  Content-Type: text/xml; charset=utf-8
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 /_astro/*

@@ -27,7 +27,7 @@ cover_image: "/wp-content/uploads/tistory/258/img.webp"
 <p data-ke-size="size16">특히 김은선 프로는 유튜브 채널 &lt;은선프로 골프스윙&gt; 채널을 운영하면서 3.7만명 구독자(23년 3월 기준)와 인스타그램 36만명의 팔로워를 보유하면서 명실공히 가장 Hot 하고 유명한 미녀골퍼가 아닌가 싶습니다.</p>
 <p data-ke-size="size16">미녀골퍼 김은선 프로에게 레슨을 받고 싶으면 인스타그램을 통해 매월 신청할 수 있는데 자세한 사항은 아래를 참고해주세요!</p>
 <h3 id="김은선_프로_레슨,_인스타_받는_방법" data-ke-size="size23">김은선 프로 레슨, 인스타 받는 방법</h3>
-<p data-ke-size="size16">매월 중순부터 말일까지 김은선프로의 인스타그램에 링크되어있는 카카오톡 오픈채팅을 통해 골프레슨 신청이 가능합니다.</p>
+<p data-ke-size="size16">매월 중순부터 말일까지 김은선프로의 인스타그램에 링크되어있는 카카오톡 오픈채팅을 통해 골프레슨 신청이 가능합니다.</p>
 <p data-ke-size="size16">김은선 프로의 인스타그램 주소는 @kimeunsunn으로 아래 링크를 통해 접속하시면 됩니다.</p>
 <div class="photo-grid">
   <img src="/wp-content/uploads/tistory/258/img_2.webp" alt="" />
