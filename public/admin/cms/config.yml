@@ -7,7 +7,7 @@ backend:
   repo: lab486486/annahouse
   branch: main
   base_url: https://annahouse.co.kr
-  auth_endpoint: api/auth
+  auth_endpoint: api/oauth/auth
   commit_messages:
     create: "Add {{collection}} “{{slug}}”"
     update: "Update {{collection}} “{{slug}}”"

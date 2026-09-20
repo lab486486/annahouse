@@ -29,11 +29,7 @@ http://localhost:4321/
 
 Secrets: `DEEPSEEK_API_KEY`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 
-휴대폰에서 Decap 로그인을 쓰려면 GitHub OAuth 앱과 Cloudflare Pages 환경 변수가 필요합니다.
+휴대폰 Decap 로그인은 GitHub OAuth + Cloudflare Pages 환경 변수를 씁니다.
 
-1. GitHub → Settings → Developer settings → OAuth Apps → New OAuth App
-2. Homepage URL: `https://annahouse.co.kr`
-3. Authorization callback URL: `https://annahouse.co.kr/api/callback`
-4. Cloudflare Pages `annahouse` → Settings → Environment variables (Production):
-   - `GITHUB_OAUTH_CLIENT_ID`
-   - `GITHUB_OAUTH_CLIENT_SECRET`
+- GitHub OAuth callback: `https://annahouse.co.kr/api/oauth/callback`
+- Pages Production secrets: `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`
