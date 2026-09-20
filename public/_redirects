@@ -1,8 +1,3 @@
-# Admin is local-only. Do not serve the writer or Decap CMS in production.
-/admin /404/ 404
-/admin/ /404/ 404
-/admin/* /404/ 404
-
 # Feeds
 /rss.xml/ /rss.xml 200
 /rss/ /rss 200

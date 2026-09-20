@@ -481,18 +481,25 @@ nav a.is-current,
   margin: 28px 0 20px;
   flex-wrap: wrap;
 }
-.admin-tabs button {
+.admin-tabs button,
+.admin-tabs a {
   border: 1px solid var(--line);
   background: var(--paper);
   border-radius: 999px;
   padding: 8px 14px;
   cursor: pointer;
   font: inherit;
+  text-decoration: none;
+  color: inherit;
 }
-.admin-tabs button.is-active {
+.admin-tabs button.is-active,
+.admin-tabs a.is-active {
   background: var(--ink);
   color: #fff;
   border-color: var(--ink);
+}
+.admin-cms-cta {
+  margin: 0 0 24px;
 }
 .saju-form {
   display: grid;
