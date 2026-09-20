@@ -1,3 +1,8 @@
+# Old Decap path
+/admin/cms /admin/ 301
+/admin/cms/ /admin/ 301
+/admin/cms/* /admin/ 301
+
 # Feeds
 /rss.xml/ /rss.xml 200
 /rss/ /rss 200

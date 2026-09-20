@@ -20,7 +20,7 @@ npm run dev
 
 http://localhost:4321/
 
-사주 글은 라이브 `/admin/` → **Decap 작성**에서 넣습니다. GitHub 저장소 쓰기 권한이 있는 계정만 로그인됩니다.
+사주 글은 라이브 `/admin/`에서 GitHub 로그인 후 왼쪽 **작성 대기**에 넣습니다. 저장소 쓰기 권한이 있는 계정만 들어갑니다.
 `DEEPSEEK_API_KEY`는 GitHub Secrets에만 두고, 브라우저나 공개 페이지에는 넣지 않습니다.
 
 ## GitHub / Cloudflare

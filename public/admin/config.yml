@@ -1,4 +1,4 @@
-# Decap CMS. 공개 화면은 GitHub 로그인이 있어야 글을 넣을 수 있습니다.
+# Decap CMS. /admin/ 에서 GitHub 로그인 후 왼쪽 메뉴로 글을 넣습니다.
 
 locale: ko
 
@@ -26,7 +26,8 @@ slug:
 
 collections:
   - name: queue
-    label: 사주 지시
+    label: 작성 대기
+    label_singular: 사주 지시
     folder: src/content/queue
     create: true
     slug: "{{name}}"
@@ -44,11 +45,12 @@ collections:
       - { label: 성별, name: gender, widget: select, options: ["남", "여"], default: "남" }
       - { label: 출생 시각, name: birth_hour, widget: number, default: 12, min: 0, max: 23 }
       - { label: 썸네일, name: cover_image, widget: image, required: false }
-      - { label: 상태, name: status, widget: select, options: ["pending", "done", "error"], default: pending }
+      - { label: 상태, name: status, widget: select, options: [pending, done, error], default: pending }
       - { label: 메모, name: note, widget: text, required: false }
 
   - name: blog
-    label: 발행된 사주 글
+    label: 발행된 글
+    label_singular: 사주 글
     folder: src/content/blog
     create: false
     slug: "{{slug}}"
