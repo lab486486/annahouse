@@ -8,7 +8,7 @@
 - 소개 `/about/`
 - 사주 `/saju/` — 유명인 글, 만세력, 애정궁합, 스타 궁합, 혈액형 궁합
 - 로또 `/lotto/` — 지난 회차와 통계 추천 번호
-- 관리자 `/admin/` — 사주 만들기. 공개 메뉴에는 없습니다.
+- 관리자 — 로컬 `npm run dev`의 `/admin/`에서만 사주를 넣습니다. 공개 사이트에는 없습니다.
 
 ## 로컬
 
@@ -20,7 +20,8 @@ npm run dev
 
 http://localhost:4321/
 
-사주 글 대기 파일은 `/admin/`에서 넣습니다. `DEEPSEEK_API_KEY`는 GitHub Secrets에만 둡니다.
+사주 글 대기 파일은 로컬 `/admin/`에서 넣습니다. 라이브 `annahouse.co.kr/admin/`은 막아 두었습니다.
+`DEEPSEEK_API_KEY`는 GitHub Secrets에만 두고, 브라우저나 공개 페이지에는 넣지 않습니다.
 
 ## GitHub / Cloudflare
 

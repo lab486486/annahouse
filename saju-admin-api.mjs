@@ -104,6 +104,15 @@ function normalizeApiPath(url = "") {
   return url.split("?")[0].replace(/\/$/, "") || "/";
 }
 
+function isLocalAdmin(req) {
+  const host = String(req.headers.host || "");
+  const ip = req.socket?.remoteAddress || "";
+  const localHost = /^(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/i.test(host);
+  const localIp =
+    ip === "127.0.0.1" || ip === "::1" || ip === ":ffff:127.0.0.1" || ip === "";
+  return localHost && localIp;
+}
+
 export function sajuAdminApi() {
   return {
     name: "saju-admin-api",
@@ -114,6 +123,9 @@ export function sajuAdminApi() {
           handle: async (req, res, next) => {
         const url = normalizeApiPath(req.url || "");
         if (!url.startsWith("/api/saju-")) return next();
+        if (!isLocalAdmin(req)) {
+          return send(res, 401, { error: "관리자 API는 로컬에서만 됩니다." });
+        }
 
         try {
           if (url === "/api/saju-queue" && req.method === "GET") {
