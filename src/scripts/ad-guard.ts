@@ -10,6 +10,10 @@ type GuardState = {
   count: number;
 };
 
+let sessionBlocked = false;
+let armed = false;
+let lastRecordAt = 0;
+
 function readState(): GuardState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -34,18 +38,36 @@ function writeState(state: GuardState) {
 }
 
 function isBlocked(): boolean {
-  return readState().count >= MAX_CLICKS;
+  return sessionBlocked || readState().count >= MAX_CLICKS;
 }
 
-function removeAdSlots() {
-  document.querySelectorAll(".ad-slot").forEach((el) => el.remove());
+/** 광고 DOM을 즉시 제거. display:none이 아니라 노드 삭제. */
+function tearDownAds() {
+  sessionBlocked = true;
+  armed = false;
+  document.querySelectorAll(".ad-slot, ins.adsbygoogle").forEach((el) => el.remove());
+  document
+    .querySelectorAll(
+      'iframe[id^="google_ads_iframe"], iframe[src*="googlesyndication"], iframe[src*="doubleclick"], iframe[name^="google_ads"]',
+    )
+    .forEach((el) => el.remove());
+}
+
+function enforceBlockIfNeeded() {
+  if (isBlocked()) tearDownAds();
 }
 
 function recordClickEstimate() {
   const state = readState();
   state.count += 1;
   writeState(state);
-  if (state.count >= MAX_CLICKS) removeAdSlots();
+  if (state.count >= MAX_CLICKS) {
+    tearDownAds();
+    // 광고 클릭으로 백그라운드에 있어도, 돌아오는 순간 한 번 더 걷어냄
+    queueMicrotask(tearDownAds);
+    setTimeout(tearDownAds, 0);
+    setTimeout(tearDownAds, 300);
+  }
 }
 
 function fillSlot(slot: HTMLElement) {
@@ -74,6 +96,10 @@ function fillSlot(slot: HTMLElement) {
 }
 
 function pushSlots() {
+  if (isBlocked()) {
+    tearDownAds();
+    return;
+  }
   const w = window as Window & { adsbygoogle?: unknown[] };
   w.adsbygoogle = w.adsbygoogle || [];
   document.querySelectorAll(".ad-slot ins.adsbygoogle").forEach(() => {
@@ -82,6 +108,10 @@ function pushSlots() {
 }
 
 function loadAdScript() {
+  if (isBlocked()) {
+    tearDownAds();
+    return;
+  }
   if (document.querySelector(`script[src^="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]`)) {
     pushSlots();
     return;
@@ -96,7 +126,7 @@ function loadAdScript() {
 
 function mountAds() {
   if (isBlocked()) {
-    removeAdSlots();
+    tearDownAds();
     return;
   }
 
@@ -105,17 +135,24 @@ function mountAds() {
 }
 
 function armIfAdTarget(target: EventTarget | null) {
+  if (sessionBlocked || isBlocked()) return;
   if (!(target instanceof Element)) return;
-  if (target.closest("ins.adsbygoogle, .adsbygoogle")) {
+  // 슬롯 영역(빈 여백 포함)도 무장 — iframe 클릭 직전에 부모에서 잡히도록
+  if (target.closest(".ad-slot, ins.adsbygoogle, .adsbygoogle")) {
     armed = true;
   }
 }
 
-let armed = false;
-let lastRecordAt = 0;
-
 document.addEventListener(
   "mouseover",
+  (event) => {
+    armIfAdTarget(event.target);
+  },
+  true,
+);
+
+document.addEventListener(
+  "pointerdown",
   (event) => {
     armIfAdTarget(event.target);
   },
@@ -131,12 +168,18 @@ document.addEventListener(
 );
 
 window.addEventListener("blur", () => {
-  if (!armed) return;
+  if (!armed || sessionBlocked) return;
   armed = false;
   const now = Date.now();
   if (now - lastRecordAt < DEBOUNCE_MS) return;
   lastRecordAt = now;
   recordClickEstimate();
+});
+
+// 광고 탭에서 돌아오면 차단 여부를 다시 보고, 남아 있는 배너를 즉시 제거
+window.addEventListener("focus", enforceBlockIfNeeded);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") enforceBlockIfNeeded();
 });
 
 mountAds();
