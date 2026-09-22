@@ -57,12 +57,10 @@ const resolvedOgImage = ogImage || new URL("/og.jpg", site.baseUrl).href;
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
-    {ads && (
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7643658138527330" crossorigin="anonymous"></script>
-    )}
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
     <slot />
+    {ads && <script src="../scripts/ad-guard.ts"></script>}
   </body>
 </html>

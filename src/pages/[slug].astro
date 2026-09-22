@@ -91,21 +91,17 @@ const related = isSajuPost(post)
         }
       </article>
       <aside class="post-side" aria-label="사이드바">
-        <div class="ad-slot ad-slot-side" aria-label="광고">
-          <ins
-            class="adsbygoogle"
-            style="display:inline-block;width:300px;height:600px"
-            data-ad-client="ca-pub-7643658138527330"
-            data-ad-slot="6882189180"></ins>
-        </div>
+        <div
+          class="ad-slot ad-slot-side"
+          aria-label="광고"
+          data-ad-client="ca-pub-7643658138527330"
+          data-ad-slot="6882189180"
+          data-ad-format="fixed"
+          data-ad-width="300"
+          data-ad-height="600"
+        ></div>
       </aside>
     </div>
   </main>
   <Footer />
 </Layout>
-
-<script>
-  const slots = document.querySelectorAll(".ad-slot ins.adsbygoogle");
-  const ads = ((window as Window & { adsbygoogle?: unknown[] }).adsbygoogle ||= []);
-  slots.forEach(() => ads.push({}));
-</script>
