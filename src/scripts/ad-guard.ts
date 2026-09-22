@@ -11,8 +11,10 @@ type GuardState = {
 };
 
 let sessionBlocked = false;
-let armed = false;
+/** 마우스가 광고 영역(또는 광고 iframe) 위에 있었는지. iframe 안에서는 이벤트가 끊겨도 유지됨. */
+let overAd = false;
 let lastRecordAt = 0;
+let reaper: MutationObserver | null = null;
 
 function readState(): GuardState {
   try {
@@ -41,16 +43,75 @@ function isBlocked(): boolean {
   return sessionBlocked || readState().count >= MAX_CLICKS;
 }
 
+function isGoogleAdIframe(el: Element): boolean {
+  if (!(el instanceof HTMLIFrameElement)) return false;
+  const id = el.id || "";
+  const name = el.name || "";
+  const src = el.getAttribute("src") || "";
+  return (
+    id.startsWith("google_ads_iframe") ||
+    name.startsWith("google_ads") ||
+    src.includes("googlesyndication") ||
+    src.includes("doubleclick") ||
+    src.includes("googletagservices")
+  );
+}
+
+function elementLooksLikeAd(el: Element | null): boolean {
+  if (!el) return false;
+  if (el.closest(".ad-slot, ins.adsbygoogle, .adsbygoogle")) return true;
+  if (isGoogleAdIframe(el)) return true;
+  return false;
+}
+
+function pointOverAd(x: number, y: number): boolean {
+  const el = document.elementFromPoint(x, y);
+  return elementLooksLikeAd(el);
+}
+
+function markOverAdFromEvent(event: Event) {
+  if (sessionBlocked) return;
+
+  if (event instanceof MouseEvent) {
+    overAd = pointOverAd(event.clientX, event.clientY) || elementLooksLikeAd(event.target as Element | null);
+    return;
+  }
+  if (event instanceof TouchEvent) {
+    const touch = event.touches[0] || event.changedTouches[0];
+    if (touch) {
+      overAd = pointOverAd(touch.clientX, touch.clientY) || elementLooksLikeAd(event.target as Element | null);
+      return;
+    }
+  }
+  if (elementLooksLikeAd(event.target as Element | null)) {
+    overAd = true;
+  }
+}
+
 /** 광고 DOM을 즉시 제거. display:none이 아니라 노드 삭제. */
 function tearDownAds() {
   sessionBlocked = true;
-  armed = false;
+  overAd = false;
   document.querySelectorAll(".ad-slot, ins.adsbygoogle").forEach((el) => el.remove());
   document
     .querySelectorAll(
-      'iframe[id^="google_ads_iframe"], iframe[src*="googlesyndication"], iframe[src*="doubleclick"], iframe[name^="google_ads"]',
+      'iframe[id^="google_ads_iframe"], iframe[src*="googlesyndication"], iframe[src*="doubleclick"], iframe[src*="googletagservices"], iframe[name^="google_ads"]',
     )
     .forEach((el) => el.remove());
+
+  // AdSense가 비동기로 다시 꽂는 iframe/ins 도 계속 제거
+  if (!reaper) {
+    reaper = new MutationObserver(() => {
+      if (!sessionBlocked) return;
+      document.querySelectorAll(".ad-slot, ins.adsbygoogle").forEach((el) => el.remove());
+      document
+        .querySelectorAll(
+          'iframe[id^="google_ads_iframe"], iframe[src*="googlesyndication"], iframe[src*="doubleclick"], iframe[src*="googletagservices"], iframe[name^="google_ads"]',
+        )
+        .forEach((el) => el.remove());
+    });
+    reaper.observe(document.documentElement, { childList: true, subtree: true });
+  }
 }
 
 function enforceBlockIfNeeded() {
@@ -63,11 +124,20 @@ function recordClickEstimate() {
   writeState(state);
   if (state.count >= MAX_CLICKS) {
     tearDownAds();
-    // 광고 클릭으로 백그라운드에 있어도, 돌아오는 순간 한 번 더 걷어냄
     queueMicrotask(tearDownAds);
     setTimeout(tearDownAds, 0);
     setTimeout(tearDownAds, 300);
+    setTimeout(tearDownAds, 1000);
   }
+}
+
+/** 광고 클릭으로 탭이 가려지거나 포커스를 잃을 때 카운트 */
+function onPossibleAdClickLeave() {
+  if (!overAd || sessionBlocked) return;
+  const now = Date.now();
+  if (now - lastRecordAt < DEBOUNCE_MS) return;
+  lastRecordAt = now;
+  recordClickEstimate();
 }
 
 function fillSlot(slot: HTMLElement) {
@@ -134,52 +204,17 @@ function mountAds() {
   loadAdScript();
 }
 
-function armIfAdTarget(target: EventTarget | null) {
-  if (sessionBlocked || isBlocked()) return;
-  if (!(target instanceof Element)) return;
-  // 슬롯 영역(빈 여백 포함)도 무장 — iframe 클릭 직전에 부모에서 잡히도록
-  if (target.closest(".ad-slot, ins.adsbygoogle, .adsbygoogle")) {
-    armed = true;
-  }
-}
+document.addEventListener("mousemove", markOverAdFromEvent, { passive: true, capture: true });
+document.addEventListener("mouseover", markOverAdFromEvent, true);
+document.addEventListener("pointerdown", markOverAdFromEvent, true);
+document.addEventListener("touchstart", markOverAdFromEvent, { capture: true, passive: true });
 
-document.addEventListener(
-  "mouseover",
-  (event) => {
-    armIfAdTarget(event.target);
-  },
-  true,
-);
-
-document.addEventListener(
-  "pointerdown",
-  (event) => {
-    armIfAdTarget(event.target);
-  },
-  true,
-);
-
-document.addEventListener(
-  "touchstart",
-  (event) => {
-    armIfAdTarget(event.target);
-  },
-  { capture: true, passive: true },
-);
-
-window.addEventListener("blur", () => {
-  if (!armed || sessionBlocked) return;
-  armed = false;
-  const now = Date.now();
-  if (now - lastRecordAt < DEBOUNCE_MS) return;
-  lastRecordAt = now;
-  recordClickEstimate();
-});
-
-// 광고 탭에서 돌아오면 차단 여부를 다시 보고, 남아 있는 배너를 즉시 제거
-window.addEventListener("focus", enforceBlockIfNeeded);
+window.addEventListener("blur", onPossibleAdClickLeave);
+window.addEventListener("pagehide", onPossibleAdClickLeave);
 document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") onPossibleAdClickLeave();
   if (document.visibilityState === "visible") enforceBlockIfNeeded();
 });
+window.addEventListener("focus", enforceBlockIfNeeded);
 
 mountAds();
