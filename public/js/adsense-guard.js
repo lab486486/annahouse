@@ -4,14 +4,15 @@
  * loads adsbygoogle.js, and calls push() only when the browser is not blocked.
  * A block removes ad nodes; it does not hide them with display:none.
  *
- * localStorage key: annahouse_ad_click_guard
- * { windowStart: number, count: number } — 3 estimated clicks / 24h blocks.
+ * localStorage key: annahouse_ad_click_guard_v2
+ * { windowStart: number, count: number } — 3 estimated ad clicks / 24h blocks.
+ * v2 ignores the v1 key, which counted ordinary article visits.
  */
 (function () {
   if (window.__annaAdGuard) return;
   window.__annaAdGuard = true;
 
-  var STORAGE_KEY = "annahouse_ad_click_guard";
+  var STORAGE_KEY = "annahouse_ad_click_guard_v2";
   var MAX_CLICKS = 3;
   var WINDOW_MS = 24 * 60 * 60 * 1000;
   var DEBOUNCE_MS = 1000;
@@ -34,6 +35,8 @@
   var blocked = false;
   var armedUntil = 0;
   var lastRecordAt = 0;
+  /** 광고가 아닌 링크를 누른 직후 pagehide/blur는 글 이동이다. 이 시각까지는 카운트하지 않는다. */
+  var ignoreLeaveUntil = 0;
   var reaper = null;
   var pushed = typeof WeakSet === "function" ? new WeakSet() : null;
 
@@ -145,6 +148,32 @@
     if (elementLooksLikeAd(document.activeElement)) arm();
   }
 
+  /**
+   * 부모 문서가 받는 링크 클릭은 사이트 안 이동이다.
+   * 광고 iframe 클릭은 cross-origin이라 여기까지 클릭이 올라오지 않는다.
+   */
+  function markNonAdLink(event) {
+    var el = eventTargetEl(event);
+    if (!el || !el.closest) return;
+    if (elementLooksLikeAd(el)) return;
+    var link = el.closest("a[href]");
+    if (!link) return;
+    var href = link.getAttribute("href") || "";
+    if (!href || href.charAt(0) === "#") return;
+    ignoreLeaveUntil = Date.now() + 2500;
+  }
+
+  function leaveIsSiteNavigation() {
+    if (Date.now() < ignoreLeaveUntil) return true;
+    var active = document.activeElement;
+    if (!active || !active.closest) return false;
+    if (elementLooksLikeAd(active)) return false;
+    var link = active.closest("a[href]");
+    if (!link) return false;
+    var href = link.getAttribute("href") || "";
+    return !!href && href.charAt(0) !== "#";
+  }
+
   function removeMatches(root) {
     if (!root || !root.querySelectorAll) return;
     root.querySelectorAll(AD_NODE_SELECTOR).forEach(function (el) {
@@ -237,11 +266,12 @@
   }
 
   /**
-   * Estimated ad click: armed, then the page is hidden.
-   * Arm is sticky across the hide so a pointer left on the cross-origin
-   * iframe still counts the next click (mouseover will not refire there).
+   * Estimated ad click: armed, then the page is hidden because the ad opened.
+   * A click on an in-site link also hides the page (pagehide) but must not count.
+   * Arm stays sticky after a real ad hide so the next iframe click still counts.
    */
   function onPossibleAdClickLeave() {
+    if (leaveIsSiteNavigation()) return;
     armFromActiveElement();
     if (!isArmed() || blocked) return;
     var now = Date.now();
@@ -345,7 +375,11 @@
   document.addEventListener("mouseover", onPointerActivity, true);
   document.addEventListener("pointerover", onPointerActivity, true);
   document.addEventListener("pointerdown", onPointerActivity, true);
+  document.addEventListener("pointerdown", markNonAdLink, true);
+  document.addEventListener("click", markNonAdLink, true);
+  document.addEventListener("auxclick", markNonAdLink, true);
   document.addEventListener("touchstart", onPointerActivity, { capture: true, passive: true });
+  document.addEventListener("touchstart", markNonAdLink, { capture: true, passive: true });
   document.addEventListener("focusin", onFocusIn, true);
   window.addEventListener("focus", armFromActiveElement, true);
   window.addEventListener("blur", onPossibleAdClickLeave);
