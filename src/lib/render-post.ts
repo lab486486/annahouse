@@ -6,7 +6,7 @@ marked.setOptions({
   breaks: false,
 });
 
-const BODY_AD = `<aside class="ad-slot ad-slot-body" aria-label="광고" data-ad-client="ca-pub-7643658138527330" data-ad-slot="5648998563" data-ad-format="auto"></aside>`;
+const BODY_AD = `<aside class="ad-slot ad-unit ad-slot-body" aria-label="광고" data-ad-client="ca-pub-7643658138527330" data-ad-slot="5648998563" data-ad-format="auto"></aside>`;
 
 const LEAD_RE =
   /<div style="text-align:\s*center;\s*margin:\s*20px 0 30px 0;\s*width:\s*100%;">\s*<img\s+([^>]+)>\s*<\/div>\s*<p style="[^"]*background-color:\s*#f8f9fa[^"]*">([\s\S]*?)<\/p>/i;

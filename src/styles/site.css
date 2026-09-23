@@ -363,7 +363,8 @@ nav a.is-current,
 .post-side {
   display: none;
 }
-.ad-slot-body {
+.ad-slot-body,
+.ad-slot-inline {
   margin: 8px 0 28px;
   min-height: 90px;
 }
