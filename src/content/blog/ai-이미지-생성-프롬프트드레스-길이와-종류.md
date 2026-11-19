@@ -6,6 +6,7 @@ description: "AI 이미지 생성 프롬프트 가이드(드레스 길이와 종
 legacy: true
 tags:
   - "IT 정보"
+cover_image: "/wp-content/uploads/tistory/442/img.png"
 ---
 <div id="mainContent">
 <div class="blogview_tit">
@@ -18,7 +19,7 @@ tags:
 <p data-ke-size="size16">아래 예시들을 천천히 보시면서 여러분만의 프롬프트를 입력해 보세요.</p>
 
 <h3 data-ke-size="size23">1. 바닥까지 끌리는 우아함: Floor-Length Dress</h3>
-<figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1024" data-origin-height="976"><span data-url="https://blog.kakaocdn.net/dna/1evJB/btr5D3jMa0Q/AAAAAAAAAAAAAAAAAAAAAJdZTxvOUNbwBhRSs2x3R1_6syoELTHZcaMt5FhJJS-4/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=VdS0AvfsO9AyVOyrI9o5MaVhhUg%3D" data-phocus="https://blog.kakaocdn.net/dna/1evJB/btr5D3jMa0Q/AAAAAAAAAAAAAAAAAAAAAJdZTxvOUNbwBhRSs2x3R1_6syoELTHZcaMt5FhJJS-4/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=VdS0AvfsO9AyVOyrI9o5MaVhhUg%3D"><img src="https://blog.kakaocdn.net/dna/1evJB/btr5D3jMa0Q/AAAAAAAAAAAAAAAAAAAAAJdZTxvOUNbwBhRSs2x3R1_6syoELTHZcaMt5FhJJS-4/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=VdS0AvfsO9AyVOyrI9o5MaVhhUg%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F1evJB%2Fbtr5D3jMa0Q%2FAAAAAAAAAAAAAAAAAAAAAJdZTxvOUNbwBhRSs2x3R1_6syoELTHZcaMt5FhJJS-4%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DVdS0AvfsO9AyVOyrI9o5MaVhhUg%253D" width="1024" height="976" data-origin-width="1024" data-origin-height="976" /></span></figure>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/442/img.png" alt="" /></p>
 <p data-ke-size="size16"><b>핵심 프롬프트: <span style="color: #ee2323;">Floor-Length dress</span></b></p>
 <p data-ke-size="size16">가장 격식 있고 웅장한 느낌을 줄 때 사용합니다. 시상식 드레스나 웨딩드레스처럼 바닥에 천이 끌리는 연출을 원할 때 필수입니다.</p>
 
@@ -29,7 +30,7 @@ tags:
 </ul>
 &nbsp;
 <h3 data-ke-size="size23">2. 발목을 덮는 편안함: Maxi Dress</h3>
-<figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1024" data-origin-height="976"><span data-url="https://blog.kakaocdn.net/dna/cwnxdA/btr5APmrIXX/AAAAAAAAAAAAAAAAAAAAABBxvLimyNgcr1G87cxiGekJbgjrFsP6bkVXeacpQdij/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=l%2F6k5igZvSpCiDlnd6psToHumL4%3D" data-phocus="https://blog.kakaocdn.net/dna/cwnxdA/btr5APmrIXX/AAAAAAAAAAAAAAAAAAAAABBxvLimyNgcr1G87cxiGekJbgjrFsP6bkVXeacpQdij/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=l%2F6k5igZvSpCiDlnd6psToHumL4%3D"><img src="https://blog.kakaocdn.net/dna/cwnxdA/btr5APmrIXX/AAAAAAAAAAAAAAAAAAAAABBxvLimyNgcr1G87cxiGekJbgjrFsP6bkVXeacpQdij/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=l%2F6k5igZvSpCiDlnd6psToHumL4%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcwnxdA%2Fbtr5APmrIXX%2FAAAAAAAAAAAAAAAAAAAAABBxvLimyNgcr1G87cxiGekJbgjrFsP6bkVXeacpQdij%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3Dl%252F6k5igZvSpCiDlnd6psToHumL4%253D" width="1024" height="976" data-origin-width="1024" data-origin-height="976" /></span></figure>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/442/img_1.png" alt="" /></p>
 <p data-ke-size="size16"><b>핵심 프롬프트: <span style="color: #ee2323;">Maxi dress</span></b></p>
 <p data-ke-size="size16">발목 정도까지 오는 긴 기장을 의미합니다. Floor-Length보다는 조금 더 활동적이며, 휴양지 룩이나 보헤미안 스타일을 연출하기 좋습니다.</p>
 
@@ -40,7 +41,7 @@ tags:
 </ul>
 &nbsp;
 <h3 data-ke-size="size23">3. 가장 활용도 높은 길이: Midi Dress</h3>
-<figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1024" data-origin-height="976"><span data-url="https://blog.kakaocdn.net/dna/dKjDa6/btr5AXSpNmm/AAAAAAAAAAAAAAAAAAAAAGLwWuPwXt7-eWm02A-VOnv1vakyR5BN2MVwgSZSpX4N/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=v7jfELe%2F5B1vawfckOkFiBdMdKw%3D" data-phocus="https://blog.kakaocdn.net/dna/dKjDa6/btr5AXSpNmm/AAAAAAAAAAAAAAAAAAAAAGLwWuPwXt7-eWm02A-VOnv1vakyR5BN2MVwgSZSpX4N/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=v7jfELe%2F5B1vawfckOkFiBdMdKw%3D"><img src="https://blog.kakaocdn.net/dna/dKjDa6/btr5AXSpNmm/AAAAAAAAAAAAAAAAAAAAAGLwWuPwXt7-eWm02A-VOnv1vakyR5BN2MVwgSZSpX4N/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=v7jfELe%2F5B1vawfckOkFiBdMdKw%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FdKjDa6%2Fbtr5AXSpNmm%2FAAAAAAAAAAAAAAAAAAAAAGLwWuPwXt7-eWm02A-VOnv1vakyR5BN2MVwgSZSpX4N%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3Dv7jfELe%252F5B1vawfckOkFiBdMdKw%253D" width="1024" height="976" data-origin-width="1024" data-origin-height="976" /></span></figure>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/442/img_2.png" alt="" /></p>
 <p data-ke-size="size16"><b>핵심 프롬프트: <span style="color: #ee2323;">Midi dress</span></b></p>
 <p data-ke-size="size16">무릎에서 정강이 사이 정도 오는 기장입니다. 일상적인 데일리룩부터 오피스룩, 하객룩 등 가장 범용적으로 쓰이는 프롬프트입니다.</p>
 
@@ -51,7 +52,7 @@ tags:
 </ul>
 &nbsp;
 <h3 data-ke-size="size23">4. 발랄하고 경쾌한: Mini Dress</h3>
-<figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1024" data-origin-height="976"><span data-url="https://blog.kakaocdn.net/dna/bippm5/btr5AAXsQAt/AAAAAAAAAAAAAAAAAAAAAN4rjR1vVsJsd-FPImQ_BvBKb8z_lGq00tfYZpWkV0m3/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=CWR62jdRcTE%2F1E7SCIlUj7BjPLk%3D" data-phocus="https://blog.kakaocdn.net/dna/bippm5/btr5AAXsQAt/AAAAAAAAAAAAAAAAAAAAAN4rjR1vVsJsd-FPImQ_BvBKb8z_lGq00tfYZpWkV0m3/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=CWR62jdRcTE%2F1E7SCIlUj7BjPLk%3D"><img src="https://blog.kakaocdn.net/dna/bippm5/btr5AAXsQAt/AAAAAAAAAAAAAAAAAAAAAN4rjR1vVsJsd-FPImQ_BvBKb8z_lGq00tfYZpWkV0m3/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1759244399&amp;allow_ip=&amp;allow_referer=&amp;signature=CWR62jdRcTE%2F1E7SCIlUj7BjPLk%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fbippm5%2Fbtr5AAXsQAt%2FAAAAAAAAAAAAAAAAAAAAAN4rjR1vVsJsd-FPImQ_BvBKb8z_lGq00tfYZpWkV0m3%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DCWR62jdRcTE%252F1E7SCIlUj7BjPLk%253D" width="1024" height="976" data-origin-width="1024" data-origin-height="976" /></span></figure>
+<p class="photo-single"><img src="/wp-content/uploads/tistory/442/img_3.png" alt="" /></p>
 <p data-ke-size="size16"><b>핵심 프롬프트: <span style="color: #ee2323;">Mini dress</span></b></p>
 <p data-ke-size="size16">무릎 위로 올라오는 짧은 기장입니다. 파티 룩이나 아이돌 무대 의상, 혹은 활동적인 느낌을 강조하고 싶을 때 사용하세요.</p>
 
