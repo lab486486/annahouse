@@ -6,6 +6,8 @@ export async function optimizedMedia(
   height = width,
 ): Promise<string | undefined> {
   if (!src) return undefined;
+  // public/ 상대경로는 Astro remote optimize 대상이 아니다.
+  if (src.startsWith("/") && !src.startsWith("//")) return src;
   try {
     const image = await getImage({
       src,

@@ -18,5 +18,7 @@ export function media(path: string): string {
 export function mediaUrl(path?: string): string | undefined {
   if (!path) return undefined;
   if (/^https?:\/\//i.test(path)) return path;
+  // Decap 썸네일(public/uploads)은 사이트와 같이 배포되므로 R2로 보내지 않는다.
+  if (path === "/uploads" || path.startsWith("/uploads/")) return path;
   return media(path);
 }
